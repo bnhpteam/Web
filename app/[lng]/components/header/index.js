@@ -8,7 +8,7 @@ export const Header = () => {
     const pathName = usePathname();
     const navList = [
         { name: '/ Home', href: '/' },
-        { name: '/ Events', href: '/palu' },
+        { name: '/ White Paper', href: '/whitepaper' },
     ];
 
     return (

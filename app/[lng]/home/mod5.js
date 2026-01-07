@@ -11,9 +11,9 @@ const navList = [
         url: linkUrl.InvestInBNHP
     },
     {
-        title: `BNHP Palu Figurine.`,
-        desc: `This is a publicity blind box activity, so that BNHP can get more attention and support.`,
-        url: `https://bnhp.ai/palu`
+        title: `BNHP White Paper.`,
+        desc: `Comprehensive documentation covering BNHP's vision, technology, tokenomics, and roadmap.`,
+        url: linkUrl.whitePaper
     },
     {
         title: `BNHP Joab Opportunities.`,

@@ -1,7 +1,7 @@
 export const linkUrl = {
-    twitter: 'https://x.com/bnhpai',
+    twitter: 'https://x.com/bnhp_team',
     telegram: 'https://t.me/BNHPAIgroup',
-    whitePaper: 'https://descriptive-rosehip-fc2.notion.site/BNHP-White-paper-2aa86e07f005803c8f2ec29017d89d42?source=copy_link',
+    whitePaper: '/BNHP-APP-Whitepaper-V1.0.pdf',
 
     InvestInBNHP: 'https://forms.monday.com/forms/fa987bbb809f33aa3063ba361105c0f1?r=apse2',
     bNHPJoab: 'https://forms.monday.com/forms/1619ca796a31fb5e966f5240999ab0ab?r=apse2',

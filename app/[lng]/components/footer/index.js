@@ -23,7 +23,7 @@ export const Footer = () => {
                             </div>
                             <div className="flex-1 h-full border-b border-[#2B2B2B] flex items-center justify-between py-4 px-6">
                                 <div className='w-2 h-2 bg-white' />
-                                <a className='text-white text-[14px] cursor-pointer' href='/palu'>/Events</a>
+                                <a className='text-white text-[14px] cursor-pointer' href='/whitepaper'>/White Paper</a>
                             </div>
                         </div>
                         <div className="max-bw:py-2">
@@ -49,14 +49,13 @@ export const Footer = () => {
                                         </svg>
                                     </div>
                                 </a>
-                                <a href={linkUrl.telegram} target="_blank" className="flex-1 py-4 px-6 flex items-center justify-between cursor-pointer max-yl:border-t max-yl:border-b max-yl:border-[#2B2B2B]">
+                                <a href="mailto:bnhpteam@gmail.com" className="flex-1 py-4 px-6 flex items-center justify-between cursor-pointer max-yl:border-t max-yl:border-b max-yl:border-[#2B2B2B]">
                                     <div className="flex items-center text-[14px] text-white">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M20.2448 5.06481C20.2738 4.93793 20.148 4.83161 20.0278 4.88089L3.88242 11.4878C3.81492 11.5154 3.78772 11.5495 3.7733 11.5765C3.75546 11.6098 3.74488 11.6576 3.75209 11.7124C3.75929 11.7671 3.78188 11.8105 3.80768 11.838C3.82817 11.8598 3.86241 11.8853 3.93249 11.8949L8.72612 12.44C8.87486 12.457 9.01514 12.518 9.12889 12.6153L16.618 19.0215C16.6329 19.0342 16.6474 19.0476 16.6613 19.0615C16.7972 19.1978 17.0316 19.1312 17.0747 18.942L20.2448 5.06481ZM21.7071 5.39903C22.0068 4.08791 20.7044 2.98201 19.4585 3.49314L3.31438 10.0995C1.68591 10.7658 2.00002 13.1618 3.74724 13.3834L8.3284 13.9045L15.6234 20.1446C16.5977 21.0864 18.2345 20.6031 18.5372 19.2755L21.7071 5.39903Z" fill="white" />
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M8.57498 12.4404C8.9876 12.4041 9.35151 12.7092 9.38779 13.1218L9.75767 17.3285L11.5835 15.7696C11.8985 15.5006 12.3719 15.538 12.6408 15.853C12.9098 16.168 12.8725 16.6414 12.5575 16.9103L10.6738 18.5186C9.82569 19.2429 8.51052 18.7902 8.28896 17.6963C8.28339 17.6688 8.27937 17.6411 8.27691 17.6131L7.89355 13.2532C7.85727 12.8406 8.16236 12.4766 8.57498 12.4404Z" fill="white" />
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M21.2827 3.89171C21.5281 4.22543 21.4565 4.69487 21.1228 4.94024L9.0869 13.7896C8.75318 14.035 8.28374 13.9633 8.03838 13.6296C7.79301 13.2959 7.86463 12.8265 8.19835 12.5811L20.2342 3.73173C20.5679 3.48637 21.0374 3.55799 21.2827 3.89171Z" fill="white" />
+                                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                                            <path d="M22 6L12 13L2 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
-                                        <span className="ml-2">Telegram</span>
+                                        <span className="ml-2">Contact: bnhpteam@gmail.com</span>
                                     </div>
                                     <div>
                                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
