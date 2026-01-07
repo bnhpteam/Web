@@ -9,7 +9,7 @@ export default function Mod6() {
             <div className='w-full relative max-yt:px-[var(--padx)]'>
                 <div className='w-screen absolute top-0 left-0 -z-1 border-[#2B2B2B] cut-border' />
                 <div className="w-base min-h-[800px] text-white border border-b-0 border-[#2B2B2B] bg-[#0B0B0B] bg-[url(/assets/imgs/fixed-bg.png)] bg-cover bg-no-repeat max-bw:bg-none relative overflow-hidden max-qw:min-h-[600px]">
-                    <Pagination className='!absolute top-0 border-b border-[#2B2B2B] max-qw:border-none' page='06' title='TOKEN ECONOMICS & TEAM' />
+                    <Pagination className='!absolute top-0 border-b border-[#2B2B2B] max-qw:border-none' page='06 / 06' title='TOKEN ECONOMICS & TEAM' />
                     <div className='w-full h-full flex items-center justify-center py-20 px-10 max-qw:py-10 max-qw:px-5'>
                         <div className='max-w-[900px] w-full'>
                             <div className='text-[rgba(255,255,255,0.40)] text-[18px] leading-[30px] max-qw:text-[14px] max-qw:leading-[24px] spanWhite'>

@@ -24,7 +24,7 @@ export default function Mod3() {
                             <img className='h-full w-[8px] absolute left-0 top-0 max-bw:left-[12px]' src='/assets/imgs/mod3-text-bg-left.png' />
                             <img className='h-full w-[8px] absolute right-0 top-0 -scale-x-[1] max-bw:right-[12px]' src='/assets/imgs/mod3-text-bg-left.png' />
                             <div className='spanWhite'>
-                                <em>BNHP</em> as a Web3 <em>startup</em> team, is committed to driving the <em>next generation Web3 industry</em> through <em>innovation</em>.Crossing the boundaries between Web2 and Web3, BNHP integrates a <em>social square, secure wallet, decentralized trading, and AI-driven exploration</em>. It is redefining <em>user asset sovereignty</em> and <em>digital social experience</em>, providing a <em>super application</em> for global users.
+                                <em>BNHP</em> is a decentralized, innovative crypto trading platform built for the <em>Binance Smart Chain (BSC)</em>. With <em>AI at its core</em>, it helps users quickly <em>discover, snipe, and trade MEME</em> tokens across the <em>BSC ecosystem</em>, delivering a <em>fast, localized</em> experience. From <em>intelligent wallet tracking to automated trading</em>, BNHP offers an <em>all‑in‑one solution for BSC users</em>—so you can <em>capture high‑potential MEME opportunities</em> without juggling multiple chains.
                             </div>
                         </div>
 

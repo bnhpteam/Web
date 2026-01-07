@@ -49,13 +49,12 @@ export const Footer = () => {
                                         </svg>
                                     </div>
                                 </a>
-                                <a href="mailto:bnhpteam@gmail.com" className="flex-1 py-4 px-6 flex items-center justify-between cursor-pointer max-yl:border-t max-yl:border-b max-yl:border-[#2B2B2B]">
+                                <a href={linkUrl.whitePaper} target="_blank" className="flex-1 py-4 px-6 flex items-center justify-between cursor-pointer max-yl:border-t max-yl:border-b max-yl:border-[#2B2B2B]">
                                     <div className="flex items-center text-[14px] text-white">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                                            <path d="M22 6L12 13L2 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
+                                            <path fillRule="evenodd" clipRule="evenodd" d="M4.84875 16.8016C4.19484 16.6082 3.49031 16.4637 2.75625 16.409C1.23563 16.2938 0 15.0164 0 13.3817V3.03984C0 1.20977 1.53421 -0.176949 3.25922 0.0183612C5.52094 0.278131 7.4545 1.23516 8.60621 1.93047C8.85936 2.08281 9.14294 2.15313 9.42374 2.14141C9.6623 2.13164 9.89904 2.06133 10.1147 1.93047C11.2655 1.23516 13.199 0.278131 15.4608 0.0183612C17.1849 -0.176949 18.72 1.20977 18.72 3.03984V13.3817C18.72 15.0164 17.4844 16.2938 15.9637 16.409C14.4727 16.5203 13.1044 17.0008 12.0324 17.5125C11.5753 17.7313 11.1722 17.9559 10.8366 18.159C9.92064 18.7117 8.79936 18.7117 7.88342 18.159C7.1475 17.7137 6.0886 17.1688 4.84875 16.8016ZM8.64 3.54961C8.3784 3.48125 8.1239 3.37188 7.88342 3.22734C7.32192 2.8875 6.5714 2.49102 5.69484 2.15899C4.91579 1.86211 4.03688 1.61797 3.10265 1.51055C2.20875 1.40899 1.44 2.12578 1.44 3.03984V13.3817C1.44 13.8133 1.61579 14.2059 1.90547 14.4852C2.15297 14.7254 2.4839 14.8836 2.85984 14.9129C5.29453 15.0946 7.38893 16.1258 8.60534 16.8602C8.61706 16.868 8.62829 16.8738 8.64 16.8797V3.54961ZM10.08 16.8797C10.0917 16.8738 10.1029 16.868 10.1147 16.8602C10.8904 16.3914 12.0229 15.8016 13.3735 15.3914C14.1408 15.1571 14.978 14.9793 15.8611 14.9129C16.6743 14.8504 17.28 14.1824 17.28 13.3817V3.03984C17.28 2.12578 16.5103 1.40899 15.6174 1.51055C13.6322 1.73711 11.8974 2.58672 10.8366 3.2293C10.5961 3.37383 10.3416 3.48125 10.08 3.54961V16.8797Z" fill="white" />
                                         </svg>
-                                        <span className="ml-2">Contact: bnhpteam@gmail.com</span>
+                                        <span className="ml-2">White Paper</span>
                                     </div>
                                     <div>
                                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -63,12 +62,13 @@ export const Footer = () => {
                                         </svg>
                                     </div>
                                 </a>
-                                <a href={linkUrl.whitePaper} target="_blank" className="flex-1 py-4 px-6 flex border-l border-[#2B2B2B] items-center justify-between cursor-pointer max-bw:border-l-0">
+                                <a href="mailto:bnhpteam@gmail.com" className="flex-1 py-4 px-6 flex border-l border-[#2B2B2B] items-center justify-between cursor-pointer max-bw:border-l-0">
                                     <div className="flex items-center text-[14px] text-white">
-                                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M4.84875 16.8016C4.19484 16.6082 3.49031 16.4637 2.75625 16.409C1.23563 16.2938 0 15.0164 0 13.3817V3.03984C0 1.20977 1.53421 -0.176949 3.25922 0.0183612C5.52094 0.278131 7.4545 1.23516 8.60621 1.93047C8.85936 2.08281 9.14294 2.15313 9.42374 2.14141C9.6623 2.13164 9.89904 2.06133 10.1147 1.93047C11.2655 1.23516 13.199 0.278131 15.4608 0.0183612C17.1849 -0.176949 18.72 1.20977 18.72 3.03984V13.3817C18.72 15.0164 17.4844 16.2938 15.9637 16.409C14.4727 16.5203 13.1044 17.0008 12.0324 17.5125C11.5753 17.7313 11.1722 17.9559 10.8366 18.159C9.92064 18.7117 8.79936 18.7117 7.88342 18.159C7.1475 17.7137 6.0886 17.1688 4.84875 16.8016ZM8.64 3.54961C8.3784 3.48125 8.1239 3.37188 7.88342 3.22734C7.32192 2.8875 6.5714 2.49102 5.69484 2.15899C4.91579 1.86211 4.03688 1.61797 3.10265 1.51055C2.20875 1.40899 1.44 2.12578 1.44 3.03984V13.3817C1.44 13.8133 1.61579 14.2059 1.90547 14.4852C2.15297 14.7254 2.4839 14.8836 2.85984 14.9129C5.29453 15.0946 7.38893 16.1258 8.60534 16.8602C8.61706 16.868 8.62829 16.8738 8.64 16.8797V3.54961ZM10.08 16.8797C10.0917 16.8738 10.1029 16.868 10.1147 16.8602C10.8904 16.3914 12.0229 15.8016 13.3735 15.3914C14.1408 15.1571 14.978 14.9793 15.8611 14.9129C16.6743 14.8504 17.28 14.1824 17.28 13.3817V3.03984C17.28 2.12578 16.5103 1.40899 15.6174 1.51055C13.6322 1.73711 11.8974 2.58672 10.8366 3.2293C10.5961 3.37383 10.3416 3.48125 10.08 3.54961V16.8797Z" fill="white" />
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                                            <path d="M22 6L12 13L2 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
-                                        <span className="ml-2">White Paper</span>
+                                        <span className="ml-2">Contact: bnhpteam@gmail.com</span>
                                     </div>
                                     <div>
                                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
