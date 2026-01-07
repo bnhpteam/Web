@@ -68,7 +68,7 @@ export default function Mod2() {
                                     {address}
                                 </div> */}
                 <div className="flex-1 h-full border border-[#505050] border-r-0 bg-[rgba(17,17,17,0.01)] shadow-[inset_0_0_16px_0_rgba(255,255,255,0.25)] text-[16px] text-[#fff] px-6- max-qw:px-3 flex items-center leading-normal justify-center  break-all max-qw:text-[14px]">
-                  <HyperText>{token}</HyperText>
+                  <HyperText>{address}</HyperText>
                 </div>
                 <CopyBtn textToCopy={address} />
               </div>
