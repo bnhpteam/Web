@@ -58,7 +58,7 @@ const ROADMAP = [
         title: 'TGE & Ecosystem',
         status: 'upcoming',
         items: [
-            'Token Generation Event (TGE) on BNB Chain',
+            'Token Generation Event (TGE) on Ethereum (ETH)',
             'NPH staking and governance launch',
             'DEX liquidity pool deployment',
             'Full mainnet launch with 1M+ user target',

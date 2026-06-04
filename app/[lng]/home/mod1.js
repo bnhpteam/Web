@@ -18,7 +18,7 @@ export default function Mod1() {
                             <a>
                                 <img className="js-badge-img" src="/assets/imgs/mod1-logo.png" alt="" />
                                 <span className="badge__vote max-qw:text-center max-qw:!text-[18px]">
-                                    Coming soon
+                                    PUBLIC SALE
                                 </span>
                             </a>
                         </div>

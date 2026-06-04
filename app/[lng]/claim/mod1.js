@@ -229,7 +229,7 @@ export default function ClaimMod1() {
                                             <div className='text-[16px] text-[rgba(255,255,255,0.6)] mt-2'>$NPH</div>
                                         </div>
                                         <div className='text-[12px] text-[rgba(255,255,255,0.3)] mb-6 leading-relaxed'>
-                                            Tokens will be distributed to your connected wallet on BNB Chain after the TGE. Ensure your wallet supports BEP-20 tokens.
+                                            Tokens will be distributed to your connected wallet on Ethereum (ETH) after the TGE. Ensure your wallet supports ERC-20 tokens.
                                         </div>
                                         <button
                                             onClick={handleClaim}
@@ -263,7 +263,7 @@ export default function ClaimMod1() {
                                         </div>
                                         <h3 className='text-[24px] text-white mb-2'>Claim Submitted!</h3>
                                         <p className='text-[14px] text-[rgba(255,255,255,0.4)] mb-4 leading-relaxed'>
-                                            Your claim for <span className='text-[#C6AC6F] font-semibold'>{claimAmount.toLocaleString()} $NPH</span> has been submitted successfully. Tokens will be distributed after the TGE event on BNB Chain.
+                                            Your claim for <span className='text-[#C6AC6F] font-semibold'>{claimAmount.toLocaleString()} $NPH</span> has been submitted successfully. Tokens will be distributed after the TGE event on Ethereum (ETH).
                                         </p>
                                         <div className='text-[11px] text-[rgba(255,255,255,0.25)] font-mono mt-4'>
                                             Wallet: {formatAddress(walletAddress)}
@@ -278,7 +278,7 @@ export default function ClaimMod1() {
 
                         {/* Note */}
                         <div className='mt-6 text-[12px] text-[rgba(255,255,255,0.25)] text-center max-w-[480px]'>
-                            $NPH claim is currently in pre-registration phase. Actual token distribution will occur after the TGE event. Contract: BNB Chain (BEP-20).
+                            $NPH claim is currently in pre-registration phase. Actual token distribution will occur after the TGE event. Contract: Ethereum (ETH) (ERC-20).
                         </div>
                     </div>
                 </div>
@@ -320,7 +320,7 @@ export default function ClaimMod1() {
                                 </div>
                                 <div>
                                     <div className='text-[11px] text-[rgba(255,255,255,0.3)] uppercase tracking-widest mb-2'>Network</div>
-                                    <div className='text-[20px] text-white font-semibold'>BNB Chain</div>
+                                    <div className='text-[20px] text-white font-semibold'>Ethereum (ETH)</div>
                                 </div>
                                 <div>
                                     <div className='text-[11px] text-[rgba(255,255,255,0.3)] uppercase tracking-widest mb-2'>TGE</div>

@@ -1,4 +1,4 @@
-export default function Pagination({ page = '01', title = 'TOKEN', desc = '/ / /', className, centerClassName, total = '04' }) {
+export default function Pagination({ page = '01', title = 'TOKEN', desc = '/ / /', className, centerClassName, total }) {
     return <>
         <div className={`w-full h-[48px] text-[12px] text-[#E3E3E3] flex items-center justify-between relative px-[40px] max-qw:px-3 ${className}`}>
             <div className="flex items-center">
@@ -6,10 +6,6 @@ export default function Pagination({ page = '01', title = 'TOKEN', desc = '/ / /
                     <span>[</span>
                     <span>&nbsp;&nbsp;&nbsp;</span>
                     <span>{page}</span>
-                    <span>&nbsp;&nbsp;&nbsp;</span>
-                    <span>/</span>
-                    <span>&nbsp;&nbsp;&nbsp;</span>
-                    <span>{total}</span>
                     <span>&nbsp;&nbsp;&nbsp;</span>
                     <span>]</span>
                 </section>

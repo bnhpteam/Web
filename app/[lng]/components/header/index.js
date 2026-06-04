@@ -1,23 +1,36 @@
 'use client';
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { useState, useRef, useEffect } from 'react';
 import { HyperText } from "@/components/ui/hyper-text";
+
 export const Header = () => {
-    const router = useRouter();
     const pathName = usePathname();
-    const navList = [
-        { name: '/ Home', href: '/' },
-        { name: '/ White Paper', href: '/whitepaper' },
-        { name: '/ Claim', href: '/claim' },
-        { name: '/ Brand', href: '/brand' },
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    const navPages = [
+        { name: 'White Paper', href: '/whitepaper' },
+        { name: 'Claim', href: '/claim' },
+        { name: 'Brand', href: '/brand' },
     ];
+
+    // Close dropdown on outside click
+    useEffect(() => {
+        const handler = (e) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+                setDropdownOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handler);
+        return () => document.removeEventListener('mousedown', handler);
+    }, []);
 
     return (
         <>
             <header className={`w-screen h-[56px] fixed top-0 left-0 z-[999] bg-[#101010] border-b border-[#2B2B2B] max-yt:px-[10px]`}>
                 <div className='max-w-[1280px] w-full mx-auto h-full border-l border-r border-[#2B2B2B] flex items-center justify-between px-6'>
-                    <a href='/' className='h-[24px] w-[120px] block'>
+                    {/* Logo */}
+                    <a href='/' className='h-[24px] w-[120px] block flex-shrink-0'>
                         <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
                             <path d="M22.5335 8.46427C20.6398 6.58554 18.6811 4.64186 18.6112 4.5819C16.8773 3.23281 14.5889 3.13788 12.7601 4.33707C12.7001 4.37704 12.6352 4.41701 12.5703 4.46198C12.5653 4.44699 12.5552 4.437 12.5453 4.427C13.5346 3.43767 15.5182 1.45402 15.5182 1.45402C14.5439 0.484674 13.2698 0 12.0006 0C10.7315 0 9.44238 0.489672 8.47303 1.46401C6.58431 3.36273 4.63063 5.33139 4.56067 5.42633C3.36648 7.05023 3.18661 8.78905 4.00105 10.6278C4.12597 10.9076 4.30086 11.1674 4.45076 11.4323C4.43577 11.4423 4.44074 11.4423 4.42575 11.4522L1.46276 8.48426H1.45776C-0.485921 10.4329 -0.485921 13.5858 1.45776 15.5295C1.45776 15.5295 5.43509 19.4468 5.68991 19.6217C7.34379 20.7609 9.48733 20.7859 11.1762 19.6967C11.2661 19.6417 11.3511 19.5867 11.436 19.5368C11.446 19.5468 11.451 19.5568 11.461 19.5668C10.4717 20.5561 8.49301 22.5397 8.49301 22.5397C10.4367 24.4884 13.5846 24.4834 15.5283 22.5447L19.4306 18.5874C20.7747 16.8486 20.8546 14.5352 19.6305 12.7114C19.6005 12.6664 19.5705 12.6165 19.5355 12.5715C19.5455 12.5615 19.5555 12.5515 19.5655 12.5465C20.5499 13.5308 22.5335 15.5145 22.5335 15.5145H22.5385C24.4822 13.5658 24.4772 10.408 22.5285 8.46427H22.5335ZM14.7288 11.4772C15.0885 11.6271 15.4233 11.867 15.6881 12.1917C16.3927 13.0312 16.4276 14.3153 15.7731 15.2097C15.6781 15.3396 15.5632 15.4595 15.4433 15.5745C14.5289 16.4938 13.6146 17.4132 12.6952 18.3276C12.6402 18.3826 12.5802 18.4325 12.5253 18.4825C13.4996 17.0784 13.6145 15.6094 13.3397 14.4252C13.0899 14.5651 12.8201 14.6651 12.5303 14.72C12.3754 15.0798 12.1355 15.4146 11.8108 15.6844C10.9663 16.3839 9.69718 16.4239 8.79279 15.7643C8.68786 15.6894 8.59294 15.5994 8.49801 15.5095L5.68991 12.7014C5.63995 12.6514 5.58996 12.5915 5.54499 12.5215C6.74418 13.336 8.04831 13.6358 9.46735 13.361C9.50233 13.356 9.53732 13.346 9.57229 13.336C9.43738 13.0911 9.33744 12.8163 9.27748 12.5315C8.73784 12.3117 8.31313 11.9119 8.02332 11.3273C7.58862 10.4529 7.68854 9.59351 8.23317 8.78905C8.30313 8.68412 8.39307 8.58919 8.48801 8.49925C9.43237 7.54989 10.3817 6.60053 11.3261 5.65117C11.376 5.6062 11.431 5.56124 11.491 5.52126C11.2611 5.87602 11.0513 6.23578 10.8964 6.62552C10.7365 7.03024 10.6315 7.44496 10.5766 7.86967C10.5266 8.30937 10.5266 8.74408 10.5916 9.18378C10.6116 9.31369 10.6316 9.44361 10.6616 9.56852C10.9114 9.43362 11.1862 9.32868 11.476 9.27372C11.6509 8.859 11.9357 8.48925 12.3204 8.22443C13.2148 7.60485 14.3491 7.60485 15.2185 8.22943C15.3384 8.31937 15.4533 8.42929 15.5632 8.53422L18.3363 11.3073C18.3863 11.3623 18.4363 11.4223 18.4812 11.4922C17.5719 10.8576 16.5675 10.5229 15.4583 10.5379C15.1035 10.5429 14.7638 10.5828 14.434 10.6578C14.5739 10.9076 14.6738 11.1874 14.7288 11.4772Z" fill="white" />
                             <path d="M13.7795 11.9969C13.7795 12.9762 12.9851 13.7707 12.0057 13.7707C11.0264 13.7707 10.2269 12.9762 10.2269 11.9969C10.2269 11.0175 11.0214 10.2231 12.0057 10.2231C12.9901 10.2231 13.7795 11.0175 13.7795 11.9969Z" fill="white" />
@@ -27,23 +40,48 @@ export const Header = () => {
                             <path d="M104.623 21.5754H99.4614V2.15354H115.581C116.6 2.15354 117.474 2.5183 118.204 3.2478C118.933 3.97731 119.298 4.85172 119.298 5.87103V10.9226C119.298 11.9569 118.933 12.8413 118.204 13.5708C117.474 14.3003 116.6 14.6651 115.581 14.6651H104.623V21.5754ZM113.302 10.313C113.522 10.313 113.717 10.2331 113.887 10.0782C114.052 9.92328 114.136 9.72342 114.136 9.48358V7.32005C114.136 7.1002 114.052 6.90533 113.887 6.73545C113.722 6.57056 113.527 6.48561 113.302 6.48561H104.618V10.313H113.302Z" fill="white" />
                         </svg>
                     </a>
+
+                    {/* Nav */}
                     <div className='flex items-center gap-x-6'>
-                        {
-                            navList.map((item, idx) => (
-                                <a href={item.href} key={idx + 'lkj'} className={`w-[53px]- whitespace-nowrap text-[14px] text-[rgba(255,255,255,0.4)] ease-out duration-[.2s] cursor-pointer hover:!text-white ${item.href == pathName && '!text-white'}`}>
-                                    <HyperText startOnView={false} animateOnHover={true} duration={200}>
-                                        {item.name}
-                                    </HyperText>
-                                </a>
-                            ))
-                            // navList.map((item, idx) => (
-                            //     <HyperText key={idx + 1 + 'lkj'} className={`text-[14px] text-[rgba(255,255,255,0.4)] ease-out duration-[.2s] cursor-pointer hover:!text-white ${item.href == pathName && '!text-white'}`}>
-                            //         <a href={item.href}>
-                            //             {item.name}
-                            //         </a>
-                            //     </HyperText>
-                            // ))
-                        }
+                        {/* Home link */}
+                        <a href='/' className={`whitespace-nowrap text-[14px] text-[rgba(255,255,255,0.4)] ease-out duration-[.2s] cursor-pointer hover:!text-white ${pathName === '/' && '!text-white'}`}>
+                            <HyperText startOnView={false} animateOnHover={true} duration={200}>/ Home</HyperText>
+                        </a>
+
+                        {/* Pages dropdown */}
+                        <div ref={dropdownRef} className='relative'>
+                            <button
+                                onClick={() => setDropdownOpen(v => !v)}
+                                className={`flex items-center gap-1.5 whitespace-nowrap text-[14px] ease-out duration-[.2s] cursor-pointer hover:!text-white ${navPages.some(p => p.href === pathName) ? 'text-white' : 'text-[rgba(255,255,255,0.4)]'}`}
+                            >
+                                <HyperText startOnView={false} animateOnHover={false} duration={200}>/ Pages</HyperText>
+                                <svg
+                                    width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                    className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                                >
+                                    <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </button>
+
+                            {/* Dropdown panel */}
+                            {dropdownOpen && (
+                                <div className='absolute top-[calc(100%+12px)] right-0 bg-[#101010] border border-[#2B2B2B] min-w-[160px] z-[1000] shadow-xl'>
+                                    {navPages.map((item, idx) => (
+                                        <a
+                                            key={idx}
+                                            href={item.href}
+                                            onClick={() => setDropdownOpen(false)}
+                                            className={`flex items-center justify-between px-4 py-3 text-[13px] border-b border-[#2B2B2B] last:border-b-0 ease-out duration-[.2s] hover:bg-[#1A1A1A] hover:text-white group ${item.href === pathName ? 'text-white' : 'text-[rgba(255,255,255,0.4)]'}`}
+                                        >
+                                            <span>/ {item.name}</span>
+                                            <svg width="8" height="8" viewBox="0 0 10 10" fill="none" className='opacity-0 group-hover:opacity-100 transition-opacity duration-200'>
+                                                <path d="M8.91667 7.08333V0.75M8.91667 0.75H2.58333M8.91667 0.75L0.75 8.91667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </header>

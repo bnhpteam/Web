@@ -17,8 +17,8 @@ const TOKEN_ALLOCATIONS = [
 const TOKEN_STATS = [
     { label: 'Token Name', value: '$NPH' },
     { label: 'Total Supply', value: '200,000,000' },
-    { label: 'Network', value: 'BNB Chain' },
-    { label: 'Standard', value: 'BEP-20' },
+    { label: 'Network', value: 'Ethereum (ETH)' },
+    { label: 'Standard', value: 'ERC-20' },
     { label: 'Public Sale Target', value: '$10M USDT' },
     { label: 'TGE', value: '2026 Q4' },
 ];

@@ -100,22 +100,16 @@ function CopyBtn({ text }) {
     );
 }
 
-// Inline SVG for BNHP logo icon (the swirl/vortex icon from brand book)
-function BnhpIcon({ size = 40, className = '' }) {
+// Logo images extracted from official BNHP Brand Book
+function BnhpLogoImage({ variant = 'dark', className = '' }) {
+    const srcs = {
+        dark: '/assets/imgs/brand-logo-dark.png',      // Black bg, golden wordmark
+        primary: '/assets/imgs/brand-logo-primary.png', // White bg, golden wordmark
+        mono: '/assets/imgs/brand-logo-mono.png',       // Black bg, white wordmark
+        secondary: '/assets/imgs/brand-logo-secondary.png', // Wordmark only
+    };
     return (
-        <img src="/assets/imgs/mod1-logo.png" alt="BNHP Icon" width={size} height={size} className={`object-contain ${className}`} />
-    );
-}
-
-// Full logo with text (using existing header SVG approach)
-function BnhpFullLogo({ dark = true }) {
-    return (
-        <div className={`flex items-center gap-3 ${dark ? 'text-white' : 'text-black'}`}>
-            <BnhpIcon size={36} />
-            <svg height="22" viewBox="0 0 120 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="18" fontFamily="Orbitron, sans-serif" fontWeight="700" fontSize="20" fill={dark ? 'white' : 'black'}>BNHP</text>
-            </svg>
-        </div>
+        <img src={srcs[variant] || srcs.dark} alt={`BNHP Logo - ${variant}`} className={`object-contain ${className}`} />
     );
 }
 
@@ -150,25 +144,34 @@ export default function BrandMod1() {
                             </p>
                         </div>
                         <div className='grid grid-cols-2 gap-4 max-bw:grid-cols-1'>
-                            {LOGO_VARIANTS.map((variant, idx) => (
-                                <div key={idx} className={`border ${variant.borderColor} ${variant.bg} p-10 flex flex-col items-center justify-center min-h-[200px] relative group`}>
-                                    <div className='absolute top-3 left-3 text-[11px] font-mono opacity-40'>/ 0{idx + 1}</div>
-                                    {variant.iconOnly ? (
-                                        <BnhpIcon size={64} className={variant.iconInvert ? 'brightness-0' : ''} />
-                                    ) : (
-                                        <div className='flex items-center gap-3'>
-                                            <BnhpIcon size={48} />
-                                            <span className={`text-[32px] font-bold tracking-wider ${variant.bg.includes('F6EFC5') ? 'text-black' : 'text-white'}`} style={{ fontFamily: 'Orbitron, sans-serif' }}>BNHP</span>
-                                        </div>
-                                    )}
-                                    <div className={`mt-6 text-[12px] text-center max-w-[260px] ${variant.bg.includes('F6EFC5') ? 'text-black/50' : 'text-white/40'}`}>
-                                        {variant.desc}
-                                    </div>
-                                    <div className={`mt-3 text-[11px] font-semibold ${variant.bg.includes('F6EFC5') ? 'text-black/70' : 'text-[rgba(255,255,255,0.6)]'}`}>
-                                        {variant.label}
-                                    </div>
-                                </div>
-                            ))}
+                            {/* Dark background — golden logo (from Brand Book) */}
+                            <div className='border border-[#2B2B2B] bg-[#0B0B0B] p-10 flex flex-col items-center justify-center min-h-[200px] relative'>
+                                <div className='absolute top-3 left-3 text-[11px] font-mono opacity-40'>/ 01</div>
+                                <BnhpLogoImage variant='dark' className='max-h-[80px] w-auto' />
+                                <div className='mt-6 text-[12px] text-center max-w-[260px] text-white/40'>Use on dark backgrounds. The standard version for all primary applications.</div>
+                                <div className='mt-3 text-[11px] font-semibold text-[rgba(255,255,255,0.6)]'>Primary — Dark Background</div>
+                            </div>
+                            {/* White/light background — golden logo (from Brand Book) */}
+                            <div className='border border-[#C6AC6F]/30 bg-white p-10 flex flex-col items-center justify-center min-h-[200px] relative'>
+                                <div className='absolute top-3 left-3 text-[11px] font-mono opacity-40 text-black'>/ 02</div>
+                                <BnhpLogoImage variant='primary' className='max-h-[80px] w-auto' />
+                                <div className='mt-6 text-[12px] text-center max-w-[260px] text-black/50'>Use on light or white backgrounds. Maintain clear space around the logo.</div>
+                                <div className='mt-3 text-[11px] font-semibold text-black/70'>Primary — Light Background</div>
+                            </div>
+                            {/* Black bg, white monochrome logo (from Brand Book) */}
+                            <div className='border border-[#2B2B2B] bg-black p-10 flex flex-col items-center justify-center min-h-[200px] relative'>
+                                <div className='absolute top-3 left-3 text-[11px] font-mono opacity-40'>/ 03</div>
+                                <BnhpLogoImage variant='mono' className='max-h-[80px] w-auto' />
+                                <div className='mt-6 text-[12px] text-center max-w-[260px] text-white/40'>Monochrome white version for single-color print or embossing applications.</div>
+                                <div className='mt-3 text-[11px] font-semibold text-[rgba(255,255,255,0.6)]'>Monochrome — White on Black</div>
+                            </div>
+                            {/* Wordmark only — secondary logo (from Brand Book) */}
+                            <div className='border border-[#C6AC6F]/30 bg-white p-10 flex flex-col items-center justify-center min-h-[200px] relative'>
+                                <div className='absolute top-3 left-3 text-[11px] font-mono opacity-40 text-black'>/ 04</div>
+                                <BnhpLogoImage variant='secondary' className='max-h-[80px] w-auto' />
+                                <div className='mt-6 text-[12px] text-center max-w-[260px] text-black/50'>Secondary wordmark-only logo for use in limited-space contexts.</div>
+                                <div className='mt-3 text-[11px] font-semibold text-black/70'>Secondary — Wordmark Only</div>
+                            </div>
                         </div>
                     </div>
                 </div>
