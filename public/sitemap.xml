@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://www.bnhp.ai/en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bnhp.ai/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.bnhp.ai/zh"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bnhp.ai/en/home</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bnhp.ai/en/home"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.bnhp.ai/zh/home"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bnhp.ai/en/whitepaper</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bnhp.ai/en/whitepaper"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.bnhp.ai/zh/whitepaper"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bnhp.ai/en/claim</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bnhp.ai/en/claim"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.bnhp.ai/zh/claim"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bnhp.ai/en/brand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bnhp.ai/en/brand"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.bnhp.ai/zh/brand"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bnhp.ai/en/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bnhp.ai/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.bnhp.ai/zh/terms"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bnhp.ai/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bnhp.ai/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.bnhp.ai/zh/privacy"/>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

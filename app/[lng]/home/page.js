@@ -26,3 +26,4 @@ export default async function AhoyHome() {
         </>
     )
 }
+// This file already exports default, metadata added via layout

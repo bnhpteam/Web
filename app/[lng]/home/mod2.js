@@ -22,7 +22,7 @@ export default function Mod2() {
             {/* <div className='font-normal text-[36px] text-[#fff]'>BNHPAI Token</div>  */}
             <div className="mt-1 text-[14px] text-[#fff] opacity-[0.4] text-center">
               <HyperText>
-               BNHP Seed Round EVM compatible chain address.
+               $NPH Seed Round EVM compatible chain address.
               </HyperText>
             </div>
             {/* <div className='mt-1 text-[14px] text-[#fff] opacity-[0.4]'>Hold&nbsp;&nbsp;$BNHP， Snipe&nbsp;&nbsp;the&nbsp;&nbsp;Moon ! "</div> */}
@@ -77,10 +77,10 @@ export default function Mod2() {
               <div className="mt-2 leading-[16px] overflow-hidden max-qw:px-[13px]">
                 <HyperText>
                   <section>
-                   BNHP seed round supported assets: ETH, BNB, USDT, USDC, etc
+                   $NPH seed round supported assets: ETH, BNB, USDT, USDC, etc
                   </section>
                   <section>
-                The official token of BNHP will be issued after the application goes live
+                $NPH will be issued after the application goes live
                   </section>
                    <section>
                 Email for other fiat currency channels: bnhpteam@gmail.com

@@ -16,7 +16,7 @@ const navList = [
         url: linkUrl.whitePaper
     },
     {
-        title: `BNHP Joab Opportunities.`,
+        title: `BNHP Job Opportunities.`,
         desc: `This is the job information for BNHP, detailing position requirements and the application process.`,
         url: linkUrl.bNHPJoab
     },
