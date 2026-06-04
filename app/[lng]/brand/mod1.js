@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const LOGO_VARIANTS = [
     { id: '01', title: 'Primary Logo — Dark', desc: 'The primary logo on a black background with gold gradient. Use as the default in all digital and print contexts where a dark background is available.', bg: '#000000', img: '/assets/imgs/brand-logo-v1-black-gold.png', textColor: '#ffffff', border: '1px solid #2B2B2B' },
-    { id: '02', title: 'Primary Logo — Gold Background', desc: 'Logo on the brand's Golden Sand gradient background. Ideal for highlight banners, social media covers, and promotional materials.', bg: 'linear-gradient(135deg, #C6AC6F 0%, #F6EFC5 100%)', img: '/assets/imgs/brand-logo-v2-gold-bg.png', textColor: '#000000', border: 'none' },
+    { id: '02', title: 'Primary Logo — Gold Background', desc: 'Logo on the BNHP Golden Sand gradient background. Ideal for highlight banners, social media covers, and promotional materials.', bg: 'linear-gradient(135deg, #C6AC6F 0%, #F6EFC5 100%)', img: '/assets/imgs/brand-logo-v2-gold-bg.png', textColor: '#000000', border: 'none' },
     { id: '03', title: 'Secondary Logo — Solid Gold', desc: 'Logo on a solid Golden Sand (#C6AC6F) background. Use when the gradient version is not suitable, such as single-color print.', bg: '#C6AC6F', img: '/assets/imgs/brand-logo-v3-gold-solid.png', textColor: '#ffffff', border: 'none' },
     { id: '04', title: 'Secondary Logo — Cream', desc: 'Logo on Soft Cream (#F6EFC5) background. Suitable for light-mode interfaces, editorial layouts, and co-branding contexts.', bg: '#F6EFC5', img: '/assets/imgs/brand-logo-v4-cream-bg.png', textColor: '#000000', border: 'none' },
     { id: '05', title: 'Monochrome — Light', desc: 'Single-color black logo on a neutral grey/white background. Use when color reproduction is not available or when visual simplicity is required.', bg: '#F4F4F4', img: '/assets/imgs/brand-logo-v5-white-bg.png', textColor: '#000000', border: '1px solid #e0e0e0' },
@@ -134,7 +134,7 @@ export default function BrandMod1() {
                         <Pagination page='04' title='TYPE' desc='Fonts' />
                         <div className='mt-10 mb-8'>
                             <h2 className='text-[28px] max-qw:text-[20px] font-semibold' style={{ fontFamily: 'Orbitron, sans-serif' }}>Brand Fonts</h2>
-                            <p className='mt-2 text-[13px] text-[rgba(255,255,255,0.45)] max-w-[480px]'>Typography is a vital part of the brand's visual identity. The chosen fonts must be used consistently across all communications.</p>
+                            <p className='mt-2 text-[13px] text-[rgba(255,255,255,0.45)] max-w-[480px]'>Typography is a vital part of the brand's visual identity. The chosen fonts must be used consistently across all brand communications.</p>
                         </div>
                         <div className='grid grid-cols-2 max-qw:grid-cols-1 gap-px bg-[#2B2B2B] border border-[#2B2B2B]'>
                             {FONTS.map((f) => (
