@@ -16,14 +16,22 @@ export const Footer = () => {
                     <div className="w-screen border-t border-b-0 border-[#2B2B2B] absolute top-0 left-0" />
                     <div className="w-[40px] h-full border-r border-[#2B2B2B] bg-[url(/assets/imgs/grid-bg.png)] bg-cover bg-no-repeat absolute left-0 -z-1" />
                     <div className="w-base border border-[#2B2B2B] bg-[#0B0B0B] bg-[url(/assets/imgs/fixed-bg.png)] bg-cover bg-no-repeat text-white flex flex-col justify-between">
-                        <div className="w-full h-[48px] flex">
+                        <div className="w-full h-[48px] flex max-qw:flex-wrap">
                             <div className="flex-1 h-full border-b border-r border-[#2B2B2B] flex items-center justify-between py-4 px-6">
                                 <div className='w-2 h-2 bg-white' />
                                 <a className='text-white text-[14px] cursor-pointer' href='/'>/Home</a>
                             </div>
-                            <div className="flex-1 h-full border-b border-[#2B2B2B] flex items-center justify-between py-4 px-6">
+                            <div className="flex-1 h-full border-b border-r border-[#2B2B2B] flex items-center justify-between py-4 px-6">
                                 <div className='w-2 h-2 bg-white' />
                                 <a className='text-white text-[14px] cursor-pointer' href='/whitepaper'>/White Paper</a>
+                            </div>
+                            <div className="flex-1 h-full border-b border-r border-[#2B2B2B] flex items-center justify-between py-4 px-6 max-qw:hidden">
+                                <div className='w-2 h-2 bg-[#C6AC6F]' />
+                                <a className='text-[#C6AC6F] text-[14px] cursor-pointer' href='/claim'>/Claim</a>
+                            </div>
+                            <div className="flex-1 h-full border-b border-[#2B2B2B] flex items-center justify-between py-4 px-6 max-qw:hidden">
+                                <div className='w-2 h-2 bg-white' />
+                                <a className='text-white text-[14px] cursor-pointer' href='/brand'>/Brand</a>
                             </div>
                         </div>
                         <div className="max-bw:py-2">
@@ -42,6 +50,20 @@ export const Footer = () => {
                                             <path fillRule="evenodd" clipRule="evenodd" d="M19.2527 3.43707C19.5636 3.71078 19.5937 4.18469 19.32 4.49559L13.8833 10.6712C13.6096 10.9821 13.1356 11.0123 12.8247 10.7386C12.5138 10.4649 12.4837 9.99094 12.7574 9.68004L18.1941 3.50443C18.4678 3.19352 18.9418 3.16337 19.2527 3.43707Z" fill="white" />
                                         </svg>
                                         <span className="ml-2">X(Twitter)</span>
+                                    </div>
+                                    <div>
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                            <path d="M8.91667 7.08333V0.75M8.91667 0.75H2.58333M8.91667 0.75L0.75 8.91667" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href={linkUrl.telegram} target="_blank" className="flex-1 border-r border-[#2B2B2B] py-4 px-6 flex items-center justify-between cursor-pointer max-yl:border-t max-yl:border-b max-yl:border-[#2B2B2B]">
+                                    <div className="flex items-center text-[14px] text-white">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path fillRule="evenodd" clipRule="evenodd" d="M20.2448 5.06481C20.2738 4.93793 20.148 4.83161 20.0278 4.88089L3.88242 11.4878C3.81492 11.5154 3.78772 11.5495 3.7733 11.5765C3.75546 11.6098 3.74488 11.6576 3.75209 11.7124C3.75929 11.7671 3.78188 11.8105 3.80768 11.838C3.82817 11.8598 3.86241 11.8853 3.93249 11.8949L8.72612 12.44C8.87486 12.457 9.01514 12.518 9.12889 12.6153L16.618 19.0215C16.6329 19.0342 16.6474 19.0476 16.6613 19.0615C16.7972 19.1978 17.0316 19.1312 17.0747 18.942L20.2448 5.06481ZM21.7071 5.39903C22.0068 4.08791 20.7044 2.98201 19.4585 3.49314L3.31438 10.0995C1.68591 10.7658 2.00002 13.1618 3.74724 13.3834L8.3284 13.9045L15.6234 20.1446C16.5977 21.0864 18.2345 20.6031 18.5372 19.2755L21.7071 5.39903Z" fill="white" />
+                                            <path fillRule="evenodd" clipRule="evenodd" d="M8.57498 12.4404C8.9876 12.4041 9.35151 12.7092 9.38779 13.1218L9.75767 17.3285L11.5835 15.7696C11.8985 15.5006 12.3719 15.538 12.6408 15.853C12.9098 16.168 12.8725 16.6414 12.5575 16.9103L10.6738 18.5186C9.82569 19.2429 8.51052 18.7902 8.28896 17.6963C8.28339 17.6688 8.27937 17.6411 8.27691 17.6131L7.89355 13.2532C7.85727 12.8406 8.16236 12.4766 8.57498 12.4404Z" fill="white" />
+                                        </svg>
+                                        <span className="ml-2">Telegram</span>
                                     </div>
                                     <div>
                                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">

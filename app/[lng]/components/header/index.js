@@ -9,6 +9,8 @@ export const Header = () => {
     const navList = [
         { name: '/ Home', href: '/' },
         { name: '/ White Paper', href: '/whitepaper' },
+        { name: '/ Claim', href: '/claim' },
+        { name: '/ Brand', href: '/brand' },
     ];
 
     return (
