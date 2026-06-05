@@ -14,8 +14,8 @@ const TOKEN_ALLOCATIONS = [
         gradFrom: '#FFFFFF',
         gradTo: '#C6AC6F',
         sideColor: '#8B7840',
-        desc: 'Two-round public offering. Soft cap $3M, hard cap $10M USDT/USDC.',
-        vesting: '20% TGE unlock, 80% over 6 months'
+        desc: 'Two-round public offering. Round 1 at $0.15, Round 2 at $0.35. Total raise target $10M USDT/USDC.',
+        vesting: '20% TGE + 6-month linear vesting (both rounds)'
     },
     {
         label: 'Ecosystem & Rewards',
@@ -85,33 +85,33 @@ const TOKEN_ALLOCATIONS = [
     },
 ];
 
-// Public Sale two-round: Round 1 cheaper than Round 2
+// Public Sale — Final confirmed version
 const PUBLIC_SALE_ROUNDS = [
     {
         round: 'Round 1',
-        label: 'Seed Public',
-        tokens: '16,000,000',
-        percent: '8%',
-        price: '$0.125',
-        raise: '$2,000,000',
-        softCap: '$3,000,000',
-        hardCap: '$6,000,000',
-        desc: 'First-round early access at the lowest public price. Soft cap $3M, hard cap $6M.',
+        label: 'Public Sale',
+        tokens: '20,000,000',
+        percent: '10%',
+        price: '$0.15',
+        raise: '$3,000,000',
+        softCap: null,
+        hardCap: null,
+        desc: 'First-round public sale at $0.15 per $NPH. 20% unlocked at TGE, remaining 80% released linearly over 6 months.',
         color: '#C6AC6F',
-        vesting: '20% TGE, 80% over 6 months',
+        vesting: '20% TGE + 6-month linear vesting',
     },
     {
         round: 'Round 2',
-        label: 'Open Sale',
-        tokens: '24,000,000',
-        percent: '12%',
-        price: '$0.333',
-        raise: '$8,000,000',
+        label: 'Public Sale',
+        tokens: '20,000,000',
+        percent: '10%',
+        price: '$0.35',
+        raise: '$7,000,000',
         softCap: null,
-        hardCap: '$8,000,000',
-        desc: 'Open public sale at a higher price. Hard cap $8M. No lock-up after TGE.',
+        hardCap: null,
+        desc: 'Second-round public sale at $0.35 per $NPH. 20% unlocked at TGE, remaining 80% released linearly over 6 months.',
         color: '#F6EFC5',
-        vesting: '100% TGE unlock, no lock-up',
+        vesting: '20% TGE + 6-month linear vesting',
     },
 ];
 
@@ -120,8 +120,8 @@ const TOKEN_STATS = [
     { label: 'Total Supply', value: '200,000,000' },
     { label: 'Network', value: 'Ethereum (ETH)' },
     { label: 'Standard', value: 'ERC-20' },
-    { label: 'Hard Cap', value: '$10M USDT' },
-    { label: 'Soft Cap', value: '$3M USDT' },
+    { label: 'R1 Price', value: '$0.15 / NPH' },
+    { label: 'R2 Price', value: '$0.35 / NPH' },
 ];
 
 // Coin-style 3D donut chart using SVG with perspective depth rings
@@ -429,7 +429,7 @@ export default function Mod6() {
                                                 <div className='w-2 h-2 rounded-full' style={{ backgroundColor: round.color }} />
                                                 <span className='text-[11px] tracking-widest uppercase text-[rgba(255,255,255,0.4)]'>{round.round}</span>
                                             </div>
-                                            <span className='text-[10px] px-2 py-0.5 border border-[#2B2B2B] text-[rgba(255,255,255,0.35)]'>{round.label}</span>
+                                            <span className='text-[10px] px-2 py-0.5 border border-[#C6AC6F]/20 text-[#C6AC6F]/50'>{round.round}</span>
                                         </div>
                                         <div className='text-[26px] font-bold mb-1' style={{ color: round.color, fontFamily: 'Orbitron, sans-serif' }}>{round.price}</div>
                                         <div className='text-[12px] text-[rgba(255,255,255,0.4)] mb-4'>per $NPH token</div>
@@ -472,8 +472,8 @@ export default function Mod6() {
                         <div className='mt-6 border border-[#2B2B2B] bg-[#111111] p-6'>
                             <div className='text-[11px] text-[#C6AC6F] uppercase tracking-widest mb-4'>Vesting Schedule</div>
                             <div className='grid grid-cols-4 gap-4 max-bw:grid-cols-2 max-qw:grid-cols-1 text-[12px] text-[rgba(255,255,255,0.5)]'>
-                                <div><span className='text-white block mb-1'>Public Sale R1</span>20% TGE, 80% over 6 months</div>
-                                <div><span className='text-white block mb-1'>Public Sale R2</span>100% TGE unlock, no lock-up</div>
+                                <div><span className='text-white block mb-1'>Public Sale R1</span>20% TGE + 6-month linear vesting</div>
+                                <div><span className='text-white block mb-1'>Public Sale R2</span>20% TGE + 6-month linear vesting</div>
                                 <div><span className='text-white block mb-1'>Seed Round</span>6-month cliff, 18-month linear</div>
                                 <div><span className='text-white block mb-1'>Team & Advisors</span>12-month cliff, 48-month linear</div>
                             </div>
