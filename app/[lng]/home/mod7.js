@@ -1,11 +1,10 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Pagination from '../components/pagination';
-import { HyperText } from "@/components/ui/hyper-text";
 
 const ROADMAP = [
     {
-        phase: 'Phase 01',
+        phase: '01',
         period: '2024 Q3 — Q4',
         title: 'Foundation',
         status: 'completed',
@@ -17,7 +16,7 @@ const ROADMAP = [
         ],
     },
     {
-        phase: 'Phase 02',
+        phase: '02',
         period: '2025 Q1 — Q2',
         title: 'Development',
         status: 'completed',
@@ -29,169 +28,346 @@ const ROADMAP = [
         ],
     },
     {
-        phase: 'Phase 03',
+        phase: '03',
         period: '2025 Q3 — Q4',
         title: 'Beta Launch',
         status: 'active',
         items: [
             'Closed beta launch on iOS & Android',
             'DEX integration with multi-chain support',
-            'NPH token smart contract audit',
+            '$NPH token smart contract audit',
             'Community whitelist campaign launch',
         ],
     },
     {
-        phase: 'Phase 04',
+        phase: '04',
         period: '2026 Q1 — Q2',
         title: 'Public Sale',
         status: 'upcoming',
         items: [
-            'NPH public sale — target $10M USDT/USDC',
+            '$NPH public sale — target $10M USDT/USDC',
             'CEX listing negotiations',
             'BNHP App open beta (global)',
             'KOL & community expansion program',
         ],
     },
     {
-        phase: 'Phase 05',
+        phase: '05',
         period: '2026 Q3 — Q4',
         title: 'TGE & Ecosystem',
         status: 'upcoming',
         items: [
-            'Token Generation Event (TGE) on Ethereum (ETH)',
-            'NPH staking and governance launch',
-            'DEX liquidity pool deployment',
-            'Full mainnet launch with 1M+ user target',
+            '$NPH Token Generation Event (TGE) on Ethereum',
+            'DEX & CEX listing',
+            'BNHP App full public launch',
+            'Ecosystem grants program launch',
         ],
     },
     {
-        phase: 'Phase 06',
+        phase: '06',
         period: '2027+',
-        title: 'Expansion',
+        title: 'Scale & Govern',
         status: 'upcoming',
         items: [
-            'Cross-chain bridge to ETH / Solana / TON',
-            'BNHP DAO governance activation',
-            'B2B API and enterprise SDK release',
-            'Global marketing and exchange partnerships',
+            'DAO governance framework deployment',
+            'Cross-chain bridge integration',
+            'B2B API & SDK for enterprise partners',
+            'Global expansion — APAC, MENA, LATAM',
         ],
     },
 ];
 
-const STATUS_CONFIG = {
-    completed: { label: 'Completed', color: 'text-green-400', border: 'border-green-400/30', bg: 'bg-green-400/5', dot: 'bg-green-400' },
-    active: { label: 'In Progress', color: 'text-[#C6AC6F]', border: 'border-[#C6AC6F]/40', bg: 'bg-[#C6AC6F]/5', dot: 'bg-[#C6AC6F] animate-pulse' },
-    upcoming: { label: 'Upcoming', color: 'text-[rgba(255,255,255,0.3)]', border: 'border-[#2B2B2B]', bg: 'bg-[#111111]', dot: 'bg-[#2B2B2B]' },
+const CFG = {
+    completed: {
+        label: 'COMPLETED',
+        nodeColor: '#C6AC6F',
+        nodeBg: '#0D0B08',
+        lineColor: '#C6AC6F',
+        textColor: '#C6AC6F',
+        dotColor: '#C6AC6F',
+        titleOpacity: 1,
+        itemOpacity: 0.65,
+        glow: '0 0 24px rgba(198,172,111,0.25)',
+    },
+    active: {
+        label: 'IN PROGRESS',
+        nodeColor: '#FFFFFF',
+        nodeBg: '#0D0D0D',
+        lineColor: '#FFFFFF',
+        textColor: '#FFFFFF',
+        dotColor: '#FFFFFF',
+        titleOpacity: 1,
+        itemOpacity: 0.7,
+        glow: '0 0 32px rgba(255,255,255,0.12)',
+    },
+    upcoming: {
+        label: 'UPCOMING',
+        nodeColor: 'rgba(255,255,255,0.18)',
+        nodeBg: '#080808',
+        lineColor: '#2B2B2B',
+        textColor: 'rgba(255,255,255,0.2)',
+        dotColor: 'rgba(255,255,255,0.15)',
+        titleOpacity: 0.35,
+        itemOpacity: 0.25,
+        glow: 'none',
+    },
 };
 
+function PhaseCard({ item, isLeft, visible }) {
+    const cfg = CFG[item.status];
+    return (
+        <div
+            className='transition-all duration-700 ease-out'
+            style={{
+                opacity: visible ? 1 : 0,
+                transform: visible
+                    ? 'translateX(0)'
+                    : isLeft ? 'translateX(-32px)' : 'translateX(32px)',
+            }}
+        >
+            <div
+                className='relative border border-[#1E1E1E] bg-[#0A0A0A] p-7 max-qw:p-5'
+                style={{ boxShadow: cfg.glow }}
+            >
+                {/* Corner marks */}
+                {[['top-0 left-0','M7 1H1V7'],['top-0 right-0','M1 1H7V7'],['bottom-0 left-0','M7 7H1V1'],['bottom-0 right-0','M1 7H7V1']].map(([pos, d], i) => (
+                    <svg key={i} className={`absolute ${pos}`} width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <path d={d} stroke={cfg.nodeColor} strokeWidth="1" strokeOpacity="0.6"/>
+                    </svg>
+                ))}
+
+                {/* Status + period row */}
+                <div className='flex items-center justify-between mb-5'>
+                    <div className='flex items-center gap-2'>
+                        <div
+                            className='w-[6px] h-[6px] rounded-full flex-shrink-0'
+                            style={{
+                                backgroundColor: cfg.dotColor,
+                                boxShadow: item.status === 'active' ? `0 0 10px ${cfg.dotColor}` : 'none',
+                            }}
+                        />
+                        <span
+                            className='text-[9px] tracking-[3.5px]'
+                            style={{ color: cfg.textColor, fontFamily: 'Orbitron, sans-serif' }}
+                        >
+                            {cfg.label}
+                        </span>
+                    </div>
+                    <span
+                        className='text-[10px] tracking-[1.5px]'
+                        style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'Orbitron, sans-serif' }}
+                    >
+                        {item.period}
+                    </span>
+                </div>
+
+                {/* Title */}
+                <div
+                    className='text-[26px] font-light leading-tight mb-6 max-qw:text-[20px]'
+                    style={{
+                        color: '#FFFFFF',
+                        opacity: cfg.titleOpacity,
+                        fontFamily: 'Orbitron, sans-serif',
+                        letterSpacing: '-0.02em',
+                    }}
+                >
+                    {item.title}
+                </div>
+
+                {/* Divider */}
+                <div className='w-full h-px mb-5' style={{ background: `linear-gradient(to right, ${cfg.nodeColor}40, transparent)` }} />
+
+                {/* Items */}
+                <ul className='space-y-3'>
+                    {item.items.map((it, i) => (
+                        <li key={i} className='flex items-start gap-3'>
+                            <span
+                                className='mt-[7px] w-[3px] h-[3px] flex-shrink-0'
+                                style={{ backgroundColor: cfg.dotColor }}
+                            />
+                            <span
+                                className='text-[12px] leading-relaxed'
+                                style={{ color: '#FFFFFF', opacity: cfg.itemOpacity }}
+                            >
+                                {it}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
+}
+
 export default function Mod7() {
-    const [visibleItems, setVisibleItems] = useState([]);
     const itemRefs = useRef([]);
+    const [visible, setVisible] = useState({});
 
     useEffect(() => {
-        const observers = itemRefs.current.map((ref, idx) => {
-            if (!ref) return null;
-            const observer = new IntersectionObserver(
+        const observers = [];
+        ROADMAP.forEach((_, idx) => {
+            const el = itemRefs.current[idx];
+            if (!el) return;
+            const obs = new IntersectionObserver(
                 ([entry]) => {
                     if (entry.isIntersecting) {
-                        setVisibleItems(prev => [...new Set([...prev, idx])]);
+                        setVisible(prev => ({ ...prev, [idx]: true }));
+                        obs.disconnect();
                     }
                 },
-                { threshold: 0.15 }
+                { threshold: 0.12 }
             );
-            observer.observe(ref);
-            return observer;
+            obs.observe(el);
+            observers.push(obs);
         });
-        return () => observers.forEach(obs => obs && obs.disconnect());
+        return () => observers.forEach(o => o.disconnect());
     }, []);
 
+    const completedCount = ROADMAP.filter(r => r.status === 'completed').length;
+    const activeCount = ROADMAP.filter(r => r.status === 'active').length;
+    const progressPct = Math.round(((completedCount + activeCount * 0.5) / ROADMAP.length) * 100);
+
     return (
-        <>
-            <div className='relative w-full max-yt:px-[var(--padx)]'>
-                <div className='w-screen absolute top-0 left-0 -z-1 border-[#2B2B2B] cut-border' />
-                <div className="w-base text-white border border-b-0 border-[#2B2B2B] relative overflow-hidden bg-[#0B0B0B]">
-                    <Pagination page='06' title='ROADMAP' desc='2024—2027+' />
+        <div className='relative max-yt:px-[var(--padx)]'>
+            <div className='w-screen h-full absolute top-0 left-0 -z-1 bg-[url(/assets/imgs/grid-bg.png)] bg-cover bg-no-repeat opacity-30' />
+            <div className='w-base border border-[#2B2B2B] bg-[#080808] relative overflow-hidden'>
+                <Pagination className='!absolute top-0' page='06' title='ROADMAP' />
 
-                    <div className='w-full p-[40px] max-qw:p-5'>
-                        {/* Section Header */}
-                        <div className='mb-10'>
-                            <div className='text-[11px] text-[#C6AC6F] tracking-[4px] mb-3 uppercase'>Development Timeline</div>
-                            <h2 className='text-[36px] font-semibold max-qw:text-[24px]'>
-                                <HyperText>Roadmap</HyperText>
-                            </h2>
-                            <p className='text-[14px] text-[rgba(255,255,255,0.4)] mt-2 max-w-[480px] leading-relaxed'>
-                                From concept to global ecosystem — BNHP's phased development plan from 2024 through 2027 and beyond.
-                            </p>
-                        </div>
-
-                        {/* Timeline Grid */}
-                        <div className='grid grid-cols-3 gap-4 max-bw:grid-cols-2 max-qw:grid-cols-1'>
-                            {ROADMAP.map((phase, idx) => {
-                                const config = STATUS_CONFIG[phase.status];
-                                const isVisible = visibleItems.includes(idx);
-                                return (
-                                    <div
-                                        key={idx}
-                                        ref={el => itemRefs.current[idx] = el}
-                                        className={`border ${config.border} ${config.bg} p-6 relative transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-                                        style={{ transitionDelay: `${(idx % 3) * 100}ms` }}
-                                    >
-                                        {/* Status indicator */}
-                                        <div className='flex items-center justify-between mb-4'>
-                                            <div className='flex items-center gap-2'>
-                                                <div className={`w-2 h-2 rounded-full ${config.dot}`} />
-                                                <span className={`text-[11px] uppercase tracking-widest ${config.color}`}>{config.label}</span>
-                                            </div>
-                                            <span className='text-[11px] font-mono text-[rgba(255,255,255,0.2)]'>{phase.phase}</span>
-                                        </div>
-
-                                        {/* Period */}
-                                        <div className='text-[12px] text-[rgba(255,255,255,0.3)] mb-2 font-mono'>{phase.period}</div>
-
-                                        {/* Title */}
-                                        <h3 className='text-[20px] text-white font-semibold mb-4'>
-                                            <HyperText>{phase.title}</HyperText>
-                                        </h3>
-
-                                        {/* Items */}
-                                        <ul className='space-y-2'>
-                                            {phase.items.map((item, iIdx) => (
-                                                <li key={iIdx} className='flex gap-2 text-[13px] text-[rgba(255,255,255,0.5)] leading-relaxed'>
-                                                    <span className={`flex-shrink-0 mt-1.5 w-1 h-1 rounded-full ${phase.status === 'completed' ? 'bg-green-400' : phase.status === 'active' ? 'bg-[#C6AC6F]' : 'bg-[#2B2B2B]'}`} />
-                                                    {item}
-                                                </li>
-                                            ))}
-                                        </ul>
-
-                                        {/* Phase number watermark */}
-                                        <div className='absolute bottom-4 right-4 text-[48px] font-bold text-[rgba(255,255,255,0.03)] leading-none select-none' style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                                            {String(idx + 1).padStart(2, '0')}
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                        {/* Progress Bar */}
-                        <div className='mt-8 border border-[#2B2B2B] bg-[#111111] p-6'>
-                            <div className='flex items-center justify-between mb-3'>
-                                <span className='text-[12px] text-[rgba(255,255,255,0.4)]'>Overall Progress</span>
-                                <span className='text-[12px] text-[#C6AC6F]'>Phase 3 of 6 — In Progress</span>
+                {/* Section header */}
+                <div className='pt-[80px] pb-[48px] px-[60px] max-qw:px-5 max-qw:pt-[64px] max-qw:pb-[32px]'>
+                    <div
+                        className='text-[10px] tracking-[5px] uppercase mb-3'
+                        style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'Orbitron, sans-serif' }}
+                    >
+                        Development Timeline
+                    </div>
+                    <div className='flex items-end justify-between gap-6 flex-wrap'>
+                        <h2
+                            className='text-[44px] font-light leading-none max-qw:text-[30px]'
+                            style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: '-0.03em' }}
+                        >
+                            <span className='text-white'>Road</span>
+                            <span style={{ color: '#C6AC6F' }}>map</span>
+                        </h2>
+                        {/* Progress indicator */}
+                        <div className='flex items-center gap-4 pb-1'>
+                            <span
+                                className='text-[10px] tracking-[3px]'
+                                style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'Orbitron, sans-serif' }}
+                            >
+                                PROGRESS
+                            </span>
+                            <div className='relative w-[140px] h-[2px] bg-[#1A1A1A] overflow-hidden'>
+                                <div
+                                    className='absolute left-0 top-0 h-full'
+                                    style={{
+                                        width: `${progressPct}%`,
+                                        background: 'linear-gradient(to right, #7A6030, #C6AC6F)',
+                                        transition: 'width 1.5s ease',
+                                    }}
+                                />
                             </div>
-                            <div className='w-full h-[6px] bg-[#1A1A1A] rounded-full overflow-hidden'>
-                                <div className='h-full bg-gradient-to-r from-[#C6AC6F] to-[#F6EFC5] rounded-full' style={{ width: '42%' }} />
-                            </div>
-                            <div className='flex justify-between mt-2'>
-                                {ROADMAP.map((p, idx) => (
-                                    <div key={idx} className={`text-[10px] font-mono ${p.status === 'completed' ? 'text-green-400' : p.status === 'active' ? 'text-[#C6AC6F]' : 'text-[rgba(255,255,255,0.2)]'}`}>
-                                        P{idx + 1}
-                                    </div>
-                                ))}
-                            </div>
+                            <span
+                                className='text-[14px] font-light'
+                                style={{ color: '#C6AC6F', fontFamily: 'Orbitron, sans-serif' }}
+                            >
+                                {progressPct}%
+                            </span>
                         </div>
                     </div>
                 </div>
+
+                {/* Timeline body */}
+                <div className='relative px-[60px] pb-[80px] max-qw:px-5 max-qw:pb-[48px]'>
+                    {/* Vertical center line — desktop only */}
+                    <div
+                        className='absolute top-0 bottom-0 max-qw:hidden'
+                        style={{
+                            left: '50%',
+                            width: '1px',
+                            transform: 'translateX(-50%)',
+                            background: 'linear-gradient(to bottom, transparent, #2B2B2B 8%, #2B2B2B 92%, transparent)',
+                        }}
+                    />
+                    {/* Vertical left line — mobile only */}
+                    <div
+                        className='absolute top-0 bottom-0 hidden max-qw:block'
+                        style={{
+                            left: '18px',
+                            width: '1px',
+                            background: 'linear-gradient(to bottom, transparent, #2B2B2B 8%, #2B2B2B 92%, transparent)',
+                        }}
+                    />
+
+                    {ROADMAP.map((item, idx) => {
+                        const cfg = CFG[item.status];
+                        const isLeft = idx % 2 === 0;
+                        return (
+                            <div
+                                key={idx}
+                                ref={el => itemRefs.current[idx] = el}
+                                className='relative flex items-center max-qw:flex-row max-qw:gap-5'
+                                style={{ marginBottom: idx < ROADMAP.length - 1 ? 0 : 0 }}
+                            >
+                                {/* ── DESKTOP layout ── */}
+                                {/* Left card slot */}
+                                <div className='flex-1 py-8 pr-12 max-qw:hidden'>
+                                    {isLeft && (
+                                        <PhaseCard item={item} isLeft={true} visible={!!visible[idx]} />
+                                    )}
+                                </div>
+
+                                {/* Center node */}
+                                <div className='flex-shrink-0 flex flex-col items-center z-10 max-qw:hidden'>
+                                    <div
+                                        className='w-[60px] h-[60px] border-2 flex items-center justify-center relative'
+                                        style={{
+                                            borderColor: cfg.nodeColor,
+                                            backgroundColor: cfg.nodeBg,
+                                            boxShadow: cfg.glow,
+                                            transition: 'box-shadow 0.3s',
+                                        }}
+                                    >
+                                        {/* Inner corner marks */}
+                                        <div className='absolute inset-[3px] border' style={{ borderColor: `${cfg.nodeColor}20` }} />
+                                        <span
+                                            className='text-[15px] font-bold relative z-10'
+                                            style={{ color: cfg.nodeColor, fontFamily: 'Orbitron, sans-serif' }}
+                                        >
+                                            {item.phase}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Right card slot */}
+                                <div className='flex-1 py-8 pl-12 max-qw:hidden'>
+                                    {!isLeft && (
+                                        <PhaseCard item={item} isLeft={false} visible={!!visible[idx]} />
+                                    )}
+                                </div>
+
+                                {/* ── MOBILE layout ── */}
+                                {/* Mobile node */}
+                                <div
+                                    className='hidden max-qw:flex flex-shrink-0 w-[36px] h-[36px] border items-center justify-center z-10'
+                                    style={{ borderColor: cfg.nodeColor, backgroundColor: cfg.nodeBg, boxShadow: cfg.glow }}
+                                >
+                                    <span
+                                        className='text-[10px] font-bold'
+                                        style={{ color: cfg.nodeColor, fontFamily: 'Orbitron, sans-serif' }}
+                                    >
+                                        {item.phase}
+                                    </span>
+                                </div>
+                                {/* Mobile card */}
+                                <div className='hidden max-qw:block flex-1 py-4'>
+                                    <PhaseCard item={item} isLeft={false} visible={!!visible[idx]} />
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
-        </>
+        </div>
     );
 }

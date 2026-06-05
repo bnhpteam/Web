@@ -77,7 +77,7 @@ export default function Mod2() {
               <div className="mt-2 leading-[16px] overflow-hidden max-qw:px-[13px]">
                 <HyperText>
                   <section>
-                   $NPH seed round supported assets: ETH, BNB, USDT, USDC, etc
+                   $NPH seed round supported assets: ETH, USDT, USDC (ERC-20)
                   </section>
                   <section>
                 $NPH will be issued after the application goes live

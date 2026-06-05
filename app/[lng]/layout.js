@@ -2,6 +2,7 @@ import './global.css'
 import { Header } from './components/header'
 import { Footer } from './components/footer'
 import Contents from './components/contents'
+import CookieBanner from './components/cookieBanner'
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 import { getT } from '../i18n'
@@ -139,6 +140,7 @@ export default async function RootLayout({ children, params }) {
           {children}
           <Footer />
         </Contents>
+        <CookieBanner />
       </body>
     </html>
   )
