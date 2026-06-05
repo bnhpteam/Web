@@ -5,11 +5,6 @@ import { HyperText } from "@/components/ui/hyper-text";
 
 const SUPPORTED_LANGS = ['en', 'zh', 'de', 'it'];
 
-const LANGS = [
-    { code: 'en', label: 'English' },
-    { code: 'zh', label: '中文简体' },
-];
-
 const NAV_PAGES = [
     { name: 'White Paper', href: '/whitepaper' },
     { name: 'Claim',       href: '/claim' },
@@ -20,43 +15,19 @@ export const Header = () => {
     const pathName = usePathname();
     const router = useRouter();
     const [pagesOpen, setPagesOpen] = useState(false);
-    const [langOpen, setLangOpen] = useState(false);
     const pagesRef = useRef(null);
-    const langRef = useRef(null);
 
     // Detect current language from path
     const currentLng = SUPPORTED_LANGS.find(l => pathName.startsWith(`/${l}`)) || 'en';
-    const currentLangLabel = LANGS.find(l => l.code === currentLng)?.label || 'EN';
 
     // Close dropdowns on outside click
     useEffect(() => {
         const handler = (e) => {
             if (pagesRef.current && !pagesRef.current.contains(e.target)) setPagesOpen(false);
-            if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
         };
         document.addEventListener('mousedown', handler);
         return () => document.removeEventListener('mousedown', handler);
     }, []);
-
-    // Switch language: replace /{lang} prefix in pathname, set cookie
-    const switchLang = (targetLng) => {
-        if (targetLng === currentLng) { setLangOpen(false); return; }
-
-        // Build new path: strip current lang prefix, prepend new lang
-        let basePath = pathName;
-        // Remove existing lang prefix if present
-        const langPrefix = SUPPORTED_LANGS.find(l => pathName.startsWith(`/${l}`));
-        if (langPrefix) {
-            basePath = pathName.slice(`/${langPrefix}`.length) || '/';
-        }
-        const newPath = `/${targetLng}${basePath === '/' ? '' : basePath}`;
-
-        // Set cookie for middleware persistence
-        document.cookie = `i18next=${targetLng}; path=/; max-age=31536000; SameSite=Lax`;
-
-        setLangOpen(false);
-        router.push(newPath);
-    };
 
     // Build href with current lang prefix
     const langHref = (href) => `/${currentLng}${href}`;
@@ -84,48 +55,6 @@ export const Header = () => {
                     {/* ── Right: Language dropdown + Home + Pages dropdown ── */}
                     <div className='flex items-center gap-x-5'>
 
-                        {/* Language dropdown — placed before /Home */}
-                        <div ref={langRef} className='relative'>
-                            <button
-                                onClick={() => { setLangOpen(v => !v); setPagesOpen(false); }}
-                                className='flex items-center gap-1.5 text-[rgba(255,255,255,0.4)] hover:text-white ease-out duration-200 cursor-pointer'
-                            >
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" className='flex-shrink-0 opacity-60'>
-                                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
-                                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" strokeWidth="1.5"/>
-                                </svg>
-                                <span style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', letterSpacing: '0.1em' }}>
-                                    / Language
-                                </span>
-                                <svg
-                                    width="9" height="9" viewBox="0 0 10 10" fill="none"
-                                    className={`transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`}
-                                >
-                                    <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </button>
-
-                            {langOpen && (
-                                <div className='absolute top-[calc(100%+12px)] left-0 bg-[#101010] border border-[#2B2B2B] min-w-[150px] z-[1000] shadow-xl'>
-                                    {LANGS.map((lang, idx) => (
-                                        <button
-                                            key={lang.code}
-                                            onClick={() => switchLang(lang.code)}
-                                            className={`w-full flex items-center justify-between px-4 py-3 text-[12px] border-b border-[#2B2B2B] last:border-b-0 ease-out duration-200 hover:bg-[#1A1A1A] text-left
-                                                ${currentLng === lang.code ? 'text-[#C6AC6F]' : 'text-[rgba(255,255,255,0.4)] hover:text-white'}`}
-                                        >
-                                            <span>{lang.label}</span>
-                                            {currentLng === lang.code && (
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                    <path d="M1.5 5L4 7.5L8.5 2.5" stroke="#C6AC6F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                                </svg>
-                                            )}
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
                         {/* Home link */}
                         <a
                             href='/'
@@ -137,7 +66,7 @@ export const Header = () => {
                         {/* Pages dropdown */}
                         <div ref={pagesRef} className='relative'>
                             <button
-                                onClick={() => { setPagesOpen(v => !v); setLangOpen(false); }}
+                                onClick={() => setPagesOpen(v => !v)}
                                 className={`flex items-center gap-1.5 whitespace-nowrap text-[14px] ease-out duration-[.2s] cursor-pointer hover:!text-white ${NAV_PAGES.some(p => isPageActive(p.href)) ? 'text-white' : 'text-[rgba(255,255,255,0.4)]'}`}
                             >
                                 <HyperText startOnView={false} animateOnHover={false} duration={200}>/ Pages</HyperText>
