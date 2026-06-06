@@ -35,7 +35,7 @@ export const Footer = () => {
             group: 'Developers',
             links: [
                 { label: 'GitHub', href: 'https://github.com/bnhpteam', external: true },
-                { label: 'Docs (GitBook)', href: 'https://docs.bnhp.ai', external: true },
+                { label: 'Docs', href: 'https://docs.bnhp.ai', external: true },
             ],
         },
     ];

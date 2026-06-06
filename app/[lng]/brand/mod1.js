@@ -4,12 +4,66 @@ import Pagination from '../components/pagination';
 import { useState } from 'react';
 
 const LOGO_VARIANTS = [
-    { id: '01', title: 'Primary Logo — Dark', desc: 'The primary logo on a black background with gold gradient. Use as the default in all digital and print contexts where a dark background is available.', bg: '#000000', img: '/assets/imgs/brand-logo-v1-black-gold.png', textColor: '#ffffff', border: '1px solid #2B2B2B' },
-    { id: '02', title: 'Primary Logo — Gold Background', desc: 'Logo on the BNHP Golden Sand gradient background. Ideal for highlight banners, social media covers, and promotional materials.', bg: 'linear-gradient(135deg, #C6AC6F 0%, #F6EFC5 100%)', img: '/assets/imgs/brand-logo-v2-gold-bg.png', textColor: '#000000', border: 'none' },
-    { id: '03', title: 'Secondary Logo — Solid Gold', desc: 'Logo on a solid Golden Sand (#C6AC6F) background. Use when the gradient version is not suitable, such as single-color print.', bg: '#C6AC6F', img: '/assets/imgs/brand-logo-v3-gold-solid.png', textColor: '#ffffff', border: 'none' },
-    { id: '04', title: 'Secondary Logo — Cream', desc: 'Logo on Soft Cream (#F6EFC5) background. Suitable for light-mode interfaces, editorial layouts, and co-branding contexts.', bg: '#F6EFC5', img: '/assets/imgs/brand-logo-v4-cream-bg.png', textColor: '#000000', border: 'none' },
-    { id: '05', title: 'Monochrome — Light', desc: 'Single-color black logo on a neutral grey/white background. Use when color reproduction is not available or when visual simplicity is required.', bg: '#F4F4F4', img: '/assets/imgs/brand-logo-v5-white-bg.png', textColor: '#000000', border: '1px solid #e0e0e0' },
-    { id: '06', title: 'Monochrome — Dark', desc: 'Single-color white logo on a pure black background. Use for dark-mode UI, merchandise, and contexts where the gold gradient is unavailable.', bg: '#000000', img: '/assets/imgs/brand-logo-v6-black-white.png', textColor: '#ffffff', border: '1px solid #2B2B2B' },
+    {
+        id: '01',
+        title: 'Primary Logo — Dark Gold',
+        desc: 'The primary logo on a black background with gold gradient. Use as the default in all digital and print contexts where a dark background is available.',
+        bg: '#000000',
+        img: '/assets/imgs/brand-logo-v1-black-gold.png',
+        textColor: '#ffffff',
+        border: '1px solid #2B2B2B',
+    },
+    {
+        id: '02',
+        title: 'Primary Logo — Gold Background',
+        desc: 'Logo on the BNHP Golden Sand gradient background. Ideal for highlight banners, social media covers, and promotional materials.',
+        bg: 'linear-gradient(135deg, #C6AC6F 0%, #F6EFC5 100%)',
+        img: '/assets/imgs/brand-logo-v2-gold-bg.png',
+        textColor: '#000000',
+        border: 'none',
+    },
+    {
+        id: '03',
+        title: 'Secondary Logo — Solid Gold',
+        desc: 'Logo on a solid Golden Sand (#C6AC6F) background. Use when the gradient version is not suitable, such as single-color print.',
+        bg: '#C6AC6F',
+        img: '/assets/imgs/brand-logo-v3-gold-solid.png',
+        textColor: '#ffffff',
+        border: 'none',
+    },
+    {
+        id: '04',
+        title: 'Secondary Logo — Cream',
+        desc: 'Logo on Soft Cream (#F6EFC5) background. Suitable for light-mode interfaces, editorial layouts, and co-branding contexts.',
+        bg: '#F6EFC5',
+        img: '/assets/imgs/brand-logo-v4-cream-bg.png',
+        textColor: '#000000',
+        border: 'none',
+    },
+    {
+        id: '05',
+        title: 'Monochrome — Light',
+        desc: 'Single-color black logo on a white background. Use when color reproduction is not available or when visual simplicity is required.',
+        bg: '#F4F4F4',
+        img: '/assets/imgs/brand-logo-v5-white-bg.png',
+        textColor: '#000000',
+        border: '1px solid #e0e0e0',
+    },
+    {
+        id: '06',
+        title: 'Monochrome — Dark',
+        desc: 'Single-color white logo on a pure black background. Use for dark-mode UI, merchandise, and contexts where the gold gradient is unavailable.',
+        bg: '#000000',
+        img: '/assets/imgs/brand-logo-v6-black-white.png',
+        textColor: '#ffffff',
+        border: '1px solid #2B2B2B',
+    },
+];
+
+const ICON_VARIANTS = [
+    { id: '01', title: 'Icon — Dark Gold', bg: '#000000', img: '/assets/imgs/brand-icon-gold.webp', border: '1px solid #2B2B2B' },
+    { id: '02', title: 'Icon — Light', bg: '#F4F4F4', img: '/assets/imgs/brand-icon-white.webp', border: '1px solid #e0e0e0' },
+    { id: '03', title: 'Icon — Dark Mono', bg: '#000000', img: '/assets/imgs/brand-icon-dark.webp', border: '1px solid #2B2B2B' },
 ];
 
 const COLORS = [
@@ -38,8 +92,10 @@ const DO_DONTS = [
 function CopyBtn({ text }) {
     const [copied, setCopied] = useState(false);
     return (
-        <button onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
-            className='text-[11px] font-mono text-[rgba(255,255,255,0.45)] hover:text-[#C6AC6F] transition-colors duration-200'>
+        <button
+            onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
+            className='text-[11px] font-mono text-[rgba(255,255,255,0.45)] hover:text-[#C6AC6F] transition-colors duration-200'
+        >
             {copied ? '✓ Copied' : text}
         </button>
     );
@@ -63,9 +119,19 @@ export default function BrandMod1() {
                                 These guidelines define how the BNHP brand is expressed across all touchpoints — from digital interfaces to print materials. Consistent application ensures strong recognition and trust.
                             </p>
                         </div>
+                        {/* App Icons Preview */}
                         <div className='mt-12 max-qw:mt-8'>
-                            <p className='text-[11px] text-[rgba(255,255,255,0.35)] tracking-widest uppercase mb-3'>App Icon — Light & Dark</p>
-                            <img src='/assets/imgs/brand-app-icons.png' alt='BNHP App Icon variants' className='h-[100px] max-qw:h-[72px] object-contain' />
+                            <p className='text-[11px] text-[rgba(255,255,255,0.35)] tracking-widest uppercase mb-5'>App Icon Variants</p>
+                            <div className='flex items-center gap-6'>
+                                {ICON_VARIANTS.map((icon) => (
+                                    <div key={icon.id} className='flex flex-col items-center gap-3'>
+                                        <div className='w-[80px] h-[80px] max-qw:w-[56px] max-qw:h-[56px] flex items-center justify-center' style={{ background: icon.bg, border: icon.border }}>
+                                            <img src={icon.img} alt={icon.title} className='w-[56px] h-[56px] max-qw:w-[40px] max-qw:h-[40px] object-contain' />
+                                        </div>
+                                        <span className='text-[10px] text-[rgba(255,255,255,0.35)] text-center leading-tight'>{icon.title}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,7 +151,7 @@ export default function BrandMod1() {
                             {LOGO_VARIANTS.map((v, i) => (
                                 <motion.div key={v.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 }} viewport={{ once: true }} className='flex flex-col bg-[#0B0B0B]'>
                                     <div className='w-full flex items-center justify-center py-14 max-qw:py-10' style={{ background: v.bg, border: v.border || 'none', minHeight: '220px' }}>
-                                        <img src={v.img} alt={v.title} className='max-h-[72px] max-qw:max-h-[52px] object-contain' />
+                                        <img src={v.img} alt={v.title} className='max-h-[72px] max-w-[280px] max-qw:max-h-[52px] object-contain' />
                                     </div>
                                     <div className='p-6 max-qw:p-4 border-t border-[#2B2B2B]'>
                                         <span className='text-[11px] text-[#C6AC6F] tracking-widest uppercase font-mono'>{v.id}</span>
@@ -178,7 +244,10 @@ export default function BrandMod1() {
                                     <span className='text-[13px] font-semibold text-[#C6AC6F] tracking-widest uppercase'>Do</span>
                                 </div>
                                 <div className='space-y-3'>{DO_DONTS.filter(d => d.type === 'do').map((d, i) => (
-                                    <div key={i} className='flex items-start gap-3'><div className='w-1 h-1 rounded-full bg-[#C6AC6F] mt-2 flex-shrink-0' /><p className='text-[13px] text-[rgba(255,255,255,0.65)] leading-relaxed'>{d.text}</p></div>
+                                    <div key={i} className='flex items-start gap-3'>
+                                        <div className='w-1 h-1 rounded-full bg-[#C6AC6F] mt-2 flex-shrink-0' />
+                                        <p className='text-[13px] text-[rgba(255,255,255,0.65)] leading-relaxed'>{d.text}</p>
+                                    </div>
                                 ))}</div>
                             </div>
                             <div className='bg-[#0B0B0B] p-6 max-qw:p-4'>
@@ -189,7 +258,10 @@ export default function BrandMod1() {
                                     <span className='text-[13px] font-semibold text-[#ff6666] tracking-widest uppercase'>Don't</span>
                                 </div>
                                 <div className='space-y-3'>{DO_DONTS.filter(d => d.type === 'dont').map((d, i) => (
-                                    <div key={i} className='flex items-start gap-3'><div className='w-1 h-1 rounded-full bg-[#ff4444] mt-2 flex-shrink-0' /><p className='text-[13px] text-[rgba(255,255,255,0.65)] leading-relaxed'>{d.text}</p></div>
+                                    <div key={i} className='flex items-start gap-3'>
+                                        <div className='w-1 h-1 rounded-full bg-[#ff4444] mt-2 flex-shrink-0' />
+                                        <p className='text-[13px] text-[rgba(255,255,255,0.65)] leading-relaxed'>{d.text}</p>
+                                    </div>
                                 ))}</div>
                             </div>
                         </div>

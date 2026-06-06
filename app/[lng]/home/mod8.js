@@ -31,6 +31,9 @@ const COMMUNITY_LINKS = [
     },
 ];
 
+// Web3Forms access key — receives submissions to bnhpteam@gmail.com
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+
 export default function Mod8() {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState('idle'); // idle | loading | success | error
@@ -46,13 +49,27 @@ export default function Mod8() {
             return;
         }
         setStatus('loading');
-        // Submit to Monday.com form (receive link) or a simple mailto fallback
         try {
-            // Using a simple fetch to a form endpoint or fallback to success state
-            await new Promise(r => setTimeout(r, 1200));
-            setStatus('success');
-            setEmail('');
-        } catch {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_KEY,
+                    subject: 'New BNHP Newsletter Subscription',
+                    from_name: 'BNHP Website',
+                    email: email,
+                    message: `New subscriber: ${email}`,
+                    botcheck: '',
+                }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                setStatus('success');
+                setEmail('');
+            } else {
+                throw new Error(data.message || 'Submission failed');
+            }
+        } catch (err) {
             setStatus('error');
             setErrorMsg('Something went wrong. Please try again.');
         }
