@@ -37,19 +37,19 @@ const ICONS = [
     {
         id: '01',
         title: 'Icon — Gold',
-        desc: 'Gold gradient icon on light background. Use for app icons and premium contexts.',
-        bg: '#F4F4F4',
+        desc: 'Gold gradient icon on black background. Use for app icons and premium contexts.',
+        bg: '#000000',
         img: '/brand/BNHP-Icon-Gold.webp',
         download: '/brand/BNHP-Icon-Gold.webp',
-        border: '1px solid #e0e0e0',
+        border: '1px solid #2B2B2B',
     },
     {
         id: '02',
-        title: 'Icon — Dark',
+        title: 'Icon — White',
         desc: 'White icon on black background. Use for dark-mode UI and merchandise.',
         bg: '#000000',
-        img: '/brand/BNHP-Icon-Black.webp',
-        download: '/brand/BNHP-Icon-Black.webp',
+        img: '/brand/BNHP-Icon-White.webp',
+        download: '/brand/BNHP-Icon-White.webp',
         border: '1px solid #2B2B2B',
     },
 ];
@@ -73,17 +73,14 @@ export default function BrandMod1() {
             {/* HERO */}
             <section className='w-full border-b border-[#2B2B2B] bg-[#0B0B0B] relative overflow-hidden'>
                 <div className='max-yt:px-[var(--padx)]'>
-                    <div className='w-base py-[80px] max-qw:py-[48px]'>
-                        <Pagination page='01' title='BRAND' desc='Guidelines' />
-                        <div className='mt-12 max-qw:mt-8'>
-                            <p className='text-[11px] tracking-[0.3em] uppercase text-[#C6AC6F] mb-4' style={{ fontFamily: 'Orbitron, sans-serif' }}>BNHP Brand Book</p>
-                            <h1 className='text-[52px] max-qw:text-[30px] font-bold leading-tight' style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                                Brand<br /><span className='text-[#C6AC6F]'>Guidelines</span>
-                            </h1>
-                            <p className='mt-6 max-w-[560px] text-[14px] text-[rgba(255,255,255,0.5)] leading-relaxed'>
-                                These guidelines define how the BNHP brand is expressed across all touchpoints — from digital interfaces to print materials. Consistent application ensures strong recognition and trust.
-                            </p>
-                        </div>
+                    <div className='w-base py-[100px] max-qw:py-[60px] flex flex-col items-center text-center'>
+                        <p className='text-[11px] tracking-[0.4em] uppercase text-[#C6AC6F] mb-5' style={{ fontFamily: 'Orbitron, sans-serif' }}>BNHP Official</p>
+                        <h1 className='text-[64px] max-qw:text-[36px] font-bold leading-tight' style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                            Brand <span className='text-[#C6AC6F]'>Kit</span>
+                        </h1>
+                        <p className='mt-6 max-w-[520px] text-[14px] text-[rgba(255,255,255,0.45)] leading-relaxed'>
+                            Official BNHP brand assets — logos, icons, and color palette for use across all digital and print touchpoints.
+                        </p>
                     </div>
                 </div>
                 <div className='absolute inset-0 bg-[url(/assets/imgs/grid-bg.png)] bg-cover opacity-10 pointer-events-none' />
