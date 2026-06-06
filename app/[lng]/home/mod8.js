@@ -32,7 +32,7 @@ const COMMUNITY_LINKS = [
 ];
 
 // Web3Forms access key — receives submissions to bnhpteam@gmail.com
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+const WEB3FORMS_KEY = 'fce482c9-b218-4d75-9edc-86a10334328a';
 
 export default function Mod8() {
     const [email, setEmail] = useState('');
