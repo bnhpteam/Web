@@ -7,6 +7,7 @@ const SUPPORTED_LANGS = ['en', 'zh', 'de', 'it'];
 
 const NAV_PAGES = [
     { name: 'White Paper', href: '/whitepaper' },
+    { name: 'Bridge',      href: '/bridge' },
     { name: 'Claim',       href: '/claim' },
     { name: 'Brand',       href: '/brand' },
 ];

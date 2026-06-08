@@ -19,6 +19,7 @@ export const Footer = () => {
             group: 'Products',
             links: [
                 { label: 'Claim $NPH', href: '/claim' },
+                { label: 'Bridge', href: '/bridge' },
                 { label: 'Brand Kit', href: '/brand' },
                 { label: 'Whitepaper PDF', href: linkUrl.whitePaper, external: true },
             ],
