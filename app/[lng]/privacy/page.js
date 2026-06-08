@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import PrivacyMod from './mod1';
 
 export const metadata = {

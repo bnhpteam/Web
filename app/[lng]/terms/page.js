@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import TermsMod from './mod1';
 
 export const metadata = {

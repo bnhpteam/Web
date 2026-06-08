@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 // import { getT } from '../../i18n'
 // import { Link } from '../components/Link'
 import Mod1 from './mod1'

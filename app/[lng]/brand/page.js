@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import BrandMod1 from './mod1'
 
 export const metadata = {

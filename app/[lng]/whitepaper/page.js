@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Mod1 from './mod1'
 import Mod2 from './mod2'
 import Mod3 from './mod3'

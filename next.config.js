@@ -3,9 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
 
   output: 'standalone',
-  experimental: {
-    serverComponentsExternalPackages: ['@rive-app/react-canvas'] // 将 Rive 添加到外部包列表，避免 SSR 问题
-  },
+  serverExternalPackages: ['@rive-app/react-canvas'], // 将 Rive 添加到外部包列表，避免 SSR 问题
 
   async rewrites() {
     return [
