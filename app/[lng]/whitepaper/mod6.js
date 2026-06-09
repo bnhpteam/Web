@@ -38,12 +38,26 @@ export default function Mod6() {
                                     </div>
 
                                     <div className='mb-6'>
-                                        <h4 className='text-[20px] text-white mb-3 max-qw:text-[16px]'>Seed Round</h4>
-                                        <p className='mb-3'>BNHP Seed Round is now open for early supporters:</p>
+                                        <h4 className='text-[20px] text-white mb-3 max-qw:text-[16px]'>$NPH Token — Contract Address</h4>
+                                        <p className='mb-3'>$NPH is deployed as an OFT (Omnichain Fungible Token) via LayerZero V2, enabling native cross-chain transfers across four networks:</p>
                                         <ul className='ml-6 space-y-2 list-disc'>
-                                            <li><em>EVM Compatible:</em> Supports ETH, BNB, USDT, USDC, and other major assets.</li>
-                                            <li><em>Early Bird Benefits:</em> Seed round participants receive preferential token allocation.</li>
-                                            <li><em>Vesting Schedule:</em> Tokens unlock gradually to ensure long-term alignment.</li>
+                                            <li><em>Ethereum (ETH):</em> <code className='text-[#C6AC6F] text-[12px]'>0xb000f8da0ed095554ac1e27d8e3ff9cecc1d0000</code></li>
+                                            <li><em>BNB Chain:</em> OFT peer deployed via LayerZero V2 (EID 30102)</li>
+                                            <li><em>Arbitrum:</em> OFT peer deployed via LayerZero V2 (EID 30110)</li>
+                                            <li><em>Base:</em> OFT peer deployed via LayerZero V2 (EID 30184)</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className='mb-6'>
+                                        <h4 className='text-[20px] text-white mb-3 max-qw:text-[16px]'>Public Sale</h4>
+                                        <p className='mb-3'>$NPH Public Sale is now live. Two rounds are open to the public:</p>
+                                        <ul className='ml-6 space-y-2 list-disc'>
+                                            <li><em>Round 1:</em> $0.15 per NPH — 20,000,000 tokens (10% of supply). Target raise: $3,000,000.</li>
+                                            <li><em>Round 2:</em> $0.35 per NPH — 20,000,000 tokens (10% of supply). Target raise: $7,000,000.</li>
+                                            <li><em>Supported Assets:</em> USDT, USDC (ERC-20) on Ethereum Mainnet.</li>
+                                            <li><em>Vesting:</em> 20% unlocked at TGE, remaining 80% released linearly over 6 months.</li>
+                                            <li><em>Sale Period:</em> June 10, 2026 — December 31, 2026.</li>
+                                            <li><em>Sale Contract (ETH):</em> <code className='text-[#C6AC6F] text-[12px]'>0xe704d6ed1a159e20afcc17421257818206413633</code></li>
                                         </ul>
                                     </div>
                                 </div>

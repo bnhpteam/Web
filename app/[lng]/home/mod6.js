@@ -118,10 +118,11 @@ const PUBLIC_SALE_ROUNDS = [
 const TOKEN_STATS = [
     { label: 'Token Name', value: '$NPH' },
     { label: 'Total Supply', value: '200,000,000' },
-    { label: 'Network', value: 'Ethereum (ETH)' },
-    { label: 'Standard', value: 'ERC-20' },
+    { label: 'Standard', value: 'OFT (LayerZero V2)' },
+    { label: 'Networks', value: 'ETH · BNB · ARB · Base' },
     { label: 'R1 Price', value: '$0.15 / NPH' },
     { label: 'R2 Price', value: '$0.35 / NPH' },
+    { label: 'CA (ETH)', value: '0xb000...1d0000' },
 ];
 
 // Coin-style 3D donut chart using SVG with perspective depth rings

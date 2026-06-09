@@ -3,6 +3,24 @@ import { useState } from 'react';
 import Pagination from '../components/pagination';
 import { HyperText } from "@/components/ui/hyper-text";
 
+const PROGRESS_LINKS = [
+    {
+        title: `Invest in BNHP.`,
+        desc: `Background, objectives, and market potential of BNHP.`,
+        url: 'https://forms.monday.com/forms/fa987bbb809f33aa3063ba361105c0f1?r=apse2'
+    },
+    {
+        title: `BNHP White Paper.`,
+        desc: `Vision, technology, tokenomics, and roadmap documentation.`,
+        url: '/BNHP-APP-Whitepaper-V1.0.pdf'
+    },
+    {
+        title: `BNHP Job Opportunities.`,
+        desc: `Position requirements and the application process.`,
+        url: 'https://forms.monday.com/forms/1619ca796a31fb5e966f5240999ab0ab?r=apse2'
+    },
+];
+
 const COMMUNITY_LINKS = [
     {
         name: 'X (Twitter)',
@@ -19,8 +37,8 @@ const COMMUNITY_LINKS = [
     },
     {
         name: 'Telegram',
-        handle: 'BNHPAIgroup',
-        url: 'https://t.me/BNHPAIgroup',
+        handle: 'bnhpai',
+        url: 'https://t.me/bnhpai',
         desc: 'Join our community group for real-time discussions and support.',
         icon: (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -146,37 +164,43 @@ export default function Mod8() {
                             {/* Divider */}
                             <div className='w-[1px] bg-[#2B2B2B] max-bw:w-full max-bw:h-[1px]' />
 
-                            {/* Right: Community Links */}
+                            {/* Right: Progress Links */}
                             <div className='flex-1'>
-                                <div className='text-[11px] text-[#C6AC6F] tracking-[4px] mb-3 uppercase'>Join Community</div>
+                                <div className='text-[11px] text-[#C6AC6F] tracking-[4px] mb-3 uppercase'>Resources</div>
                                 <h2 className='text-[36px] font-semibold mb-3 max-qw:text-[24px]'>
-                                    <HyperText>Connect</HyperText>
+                                    <HyperText>Progress</HyperText>
                                 </h2>
                                 <p className='text-[14px] text-[rgba(255,255,255,0.4)] mb-8 leading-relaxed max-w-[400px]'>
-                                    Join thousands of BNHP community members across our social channels.
+                                    Explore BNHP's investment opportunities, documentation, and career openings.
                                 </p>
-                                <div className='space-y-3'>
-                                    {COMMUNITY_LINKS.map((link, idx) => (
+                                <div className='space-y-0'>
+                                    {PROGRESS_LINKS.map((link, idx) => (
                                         <a
                                             key={idx}
                                             href={link.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className='flex items-center gap-4 border border-[#2B2B2B] bg-[#111111] p-4 group hover:border-[#C6AC6F]/40 transition-all duration-300'
+                                            className={`w-full flex border border-[#2B2B2B] max-qw:flex-col max-qw:h-fit max-qw:p-3 max-qw:border-l-0 max-qw:last:border-b-0 ${idx % 2 ? 'border-t-0 border-b-0' : ''} group hover:bg-[#111111] transition-all duration-300`}
                                         >
-                                            <div className='w-10 h-10 border border-[#2B2B2B] flex items-center justify-center text-[rgba(255,255,255,0.4)] group-hover:text-[#C6AC6F] group-hover:border-[#C6AC6F]/40 transition-all duration-300 flex-shrink-0'>
-                                                {link.icon}
+                                            <div className='flex-1 p-4 text-[#B2B2B2] text-[12px] flex items-start max-qw:flex-col max-qw:p-0'>
+                                                <span>/&nbsp;&nbsp;&nbsp;00{idx + 1}</span>
+                                                <span className='text-[16px] text-white ml-6 max-qw:ml-0 max-qw:mt-3 group-hover:text-[#C6AC6F] transition-colors duration-300'>
+                                                    <HyperText>{link.title}</HyperText>
+                                                </span>
                                             </div>
-                                            <div className='flex-1'>
-                                                <div className='flex items-center gap-2'>
-                                                    <span className='text-[14px] text-white font-medium'>{link.name}</span>
-                                                    <span className='text-[12px] text-[rgba(255,255,255,0.3)]'>{link.handle}</span>
+                                            <div className='flex-1 p-4 text-[14px] text-[rgba(255,255,255,0.40)] max-qw:p-0 max-qw:mt-3'>
+                                                <HyperText>{link.desc}</HyperText>
+                                            </div>
+                                            <div className='flex-1 p-4 flex justify-end items-center max-qw:p-0 max-qw:mt-3'>
+                                                <div className='w-[148px] h-[40px] border border-white cursor-pointer relative group-inner'>
+                                                    <div className='w-full h-full flex items-center justify-between px-4 py-[10px] text-white group-hover:text-[#C6AC6F] transition-colors duration-300'>
+                                                        <span>View</span>
+                                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                                            <path d="M8.91667 7.08333V0.75M8.91667 0.75H2.58333M8.91667 0.75L0.75 8.91667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                        </svg>
+                                                    </div>
                                                 </div>
-                                                <div className='text-[12px] text-[rgba(255,255,255,0.35)] mt-0.5'>{link.desc}</div>
                                             </div>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className='flex-shrink-0 text-[rgba(255,255,255,0.2)] group-hover:text-[#C6AC6F] transition-colors duration-300'>
-                                                <path d="M8.91667 7.08333V0.75M8.91667 0.75H2.58333M8.91667 0.75L0.75 8.91667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
                                         </a>
                                     ))}
                                 </div>
