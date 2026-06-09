@@ -327,7 +327,7 @@ export default function Mod6() {
             <div ref={sectionRef} className='relative w-full max-yt:px-[var(--padx)]'>
                 <div className='w-screen absolute top-0 left-0 -z-1 border-[#2B2B2B] cut-border' />
                 <div className="w-base text-white border border-b-0 border-[#2B2B2B] relative overflow-hidden bg-[#0B0B0B] bg-[url(/assets/imgs/fixed-bg.png)] bg-cover bg-no-repeat">
-                    <Pagination page='05' title='TOKENOMICS' desc='$NPH' />
+                    <Pagination page='04' title='TOKENOMICS' desc='$NPH' />
 
                     <div className='w-full p-[40px] max-qw:p-5'>
                         {/* Section Header */}

@@ -6,7 +6,6 @@ import Mod2 from './mod2'
 import Mod3 from './mod3'
 import ModPartners from './mod_partners'
 import Mod4 from './mod4'
-import Mod5 from './mod5'
 import Mod6 from './mod6'
 import Mod7 from './mod7'
 import Mod8 from './mod8'
@@ -21,7 +20,6 @@ export default async function AhoyHome() {
                 <Mod3 />
                 <ModPartners />
                 <Mod4 />
-                <Mod5 />
                 <Mod6 />
                 <Mod7 />
                 <Mod8 />

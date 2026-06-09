@@ -82,7 +82,7 @@ export default function Mod2() {
             >
               <span className="absolute inset-0 bg-[#C6AC6F] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
               <span className="relative z-10 flex items-center gap-2">
-                参加
+                Participate
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <path d="M8.91667 7.08333V0.75M8.91667 0.75H2.58333M8.91667 0.75L0.75 8.91667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

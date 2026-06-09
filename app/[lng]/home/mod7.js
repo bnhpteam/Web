@@ -218,7 +218,7 @@ export default function Mod7() {
         <div className='relative max-yt:px-[var(--padx)]'>
             <div className='w-screen h-full absolute top-0 left-0 -z-1 bg-[url(/assets/imgs/grid-bg.png)] bg-cover bg-no-repeat opacity-30' />
             <div className='w-base border border-[#2B2B2B] bg-[#080808] relative overflow-hidden'>
-                <Pagination className='!absolute top-0' page='06' title='ROADMAP' />
+                <Pagination className='!absolute top-0' page='05' title='ROADMAP' />
 
                 {/* Section header */}
                 <div className='pt-[80px] pb-[48px] px-[60px] max-qw:px-5 max-qw:pt-[64px] max-qw:pb-[32px]'>
