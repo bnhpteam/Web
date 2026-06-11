@@ -95,7 +95,7 @@ export default function Mod6() {
 
                                 <div className='text-center mt-12'>
                                     <a 
-                                        href="/BNHP-APP-Whitepaper-V1.0.pdf" 
+                                        href="/BNHP-APP-Whitepaper-V2.0.pdf" 
                                         download
                                         className='inline-block px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer text-white'
                                     >
