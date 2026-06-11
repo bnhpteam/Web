@@ -1,29 +1,32 @@
 import { NextResponse } from 'next/server'
 import acceptLanguage from 'accept-language'
 import { fallbackLng, languages, cookieName, headerName } from './app/i18n/settings'
-
 acceptLanguage.languages(languages)
-
 export const config = {
-  matcher: ['/((?!api|prod-api|_next/static|_next/image|assets|brand|favicon.ico|sw.js|site.webmanifest|\\.pdf).*)']
+  matcher: ['/((?!api|prod-api|_next/static|_next/image|assets|brand|favicon.ico|sw.js|site.webmanifest).*)']
 }
-
 export function middleware(req) {
-  if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1) return NextResponse.next()
-  
+  const { pathname } = req.nextUrl
+
+  // Skip middleware for static files (images, PDFs, fonts, etc.)
+  if (
+    pathname.indexOf('icon') > -1 ||
+    pathname.indexOf('chrome') > -1 ||
+    /\.(?:pdf|png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot|mp4|webm|mp3|wav|zip|gz)$/i.test(pathname)
+  ) {
+    return NextResponse.next()
+  }
+
   let lng
   if (req.cookies.has(cookieName)) lng = acceptLanguage.get(req.cookies.get(cookieName).value)
   if (!lng) lng = acceptLanguage.get(req.headers.get('Accept-Language'))
   if (!lng) lng = fallbackLng
-
   const lngInPath = languages.find(loc => req.nextUrl.pathname.startsWith(`/${loc}`))
   const headers = new Headers(req.headers)
   headers.set(headerName, lngInPath || lng)
-
   if (req.nextUrl.pathname === '/') {
     return NextResponse.rewrite(new URL(`/${lng}`, req.url), { headers })
   }
-
   if (
     !lngInPath &&
     !req.nextUrl.pathname.startsWith('/_next') &&
@@ -31,7 +34,6 @@ export function middleware(req) {
   ) {
     return NextResponse.rewrite(new URL(`/${lng}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url), { headers })
   }
-
   if (req.headers.has('referer')) {
     const refererUrl = new URL(req.headers.get('referer'))
     const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`))
@@ -39,6 +41,5 @@ export function middleware(req) {
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer)
     return response
   }
-
   return NextResponse.next({ headers })
 }
