@@ -10,7 +10,7 @@ const PROGRESS_LINKS = [
         url: 'https://forms.monday.com/forms/fa987bbb809f33aa3063ba361105c0f1?r=apse2'
     },
     {
-        title: `BNHP White Paper.`,
+        title: `BNHP White Paper V2.0.`,
         desc: `Vision, technology, tokenomics, and roadmap documentation.`,
         url: '/BNHP-APP-Whitepaper-V2.0.pdf'
     },
