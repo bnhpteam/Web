@@ -13,7 +13,7 @@ export default function Mod1() {
                         <div className='text-[64px] font-bold max-qw:text-[32px]'>BNHP White Paper</div>
                         <div className='text-[24px] text-[rgba(255,255,255,0.6)] mt-4 max-qw:text-[16px]'>Version 1.0</div>
                         <a 
-                            href="/BNHP-APP-Whitepaper-V1.0.pdf" 
+                            href="/BNHP-APP-Whitepaper-V2.0.pdf" 
                             download
                             className='mt-8 px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer'
                         >
