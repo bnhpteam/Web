@@ -12,7 +12,7 @@ const PROGRESS_LINKS = [
     {
         title: `BNHP White Paper.`,
         desc: `Vision, technology, tokenomics, and roadmap documentation.`,
-        url: '/BNHP-APP-Whitepaper-V1.0.pdf'
+        url: '/BNHP-APP-Whitepaper-V2.0.pdf'
     },
     {
         title: `BNHP Job Opportunities.`,
