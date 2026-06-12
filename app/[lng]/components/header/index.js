@@ -6,6 +6,7 @@ import { HyperText } from "@/components/ui/hyper-text";
 const SUPPORTED_LANGS = ['en', 'zh', 'de', 'it'];
 
 const NAV_PAGES = [
+    { name: 'Buy NPH',     href: 'https://app.bnhp.ai/sale', external: true },
     { name: 'White Paper', href: '/whitepaper' },
     { name: 'Bridge',      href: '/bridge' },
     { name: 'Claim',       href: '/claim' },
@@ -84,8 +85,10 @@ export const Header = () => {
                                     {NAV_PAGES.map((item, idx) => (
                                         <a
                                             key={idx}
-                                            href={langHref(item.href)}
+                                            href={item.external ? item.href : langHref(item.href)}
                                             onClick={() => setPagesOpen(false)}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
                                             className={`flex items-center justify-between px-4 py-3 text-[13px] border-b border-[#2B2B2B] last:border-b-0 ease-out duration-[.2s] hover:bg-[#1A1A1A] hover:text-white group ${isPageActive(item.href) ? 'text-white' : 'text-[rgba(255,255,255,0.4)]'}`}
                                         >
                                             <span>/ {item.name}</span>
